@@ -198,15 +198,15 @@
         <c:forEach var="p" items="${pD.listar1()}">
 
           <tr>
-            <td style="text-align: center"><img src="<c:out value="${p.getFoto()}"/>"
+            <td style="text-align: center"><img src="<c:out value="${p.foto}"/>"
               with="120px" height="120px"></td> 
-            <td style="text-align: center"><c:out value="${p.getCedula()}"/></td>
-            <td style="text-align: center"><c:out value="${p.getNombre()}"/></td>
-            <td style="text-align: center"><c:out value="${p.getEdad()}"/></td>
-            <td style="text-align: center"><c:out value="${p.getCargo()}"/></td>
+            <td style="text-align: center"><c:out value="${p.cedula}"/></td>
+            <td style="text-align: center"><c:out value="${p.nombre}"/></td>
+            <td style="text-align: center"><c:out value="${p.edad}"/></td>
+            <td style="text-align: center"><c:out value="${p.telefono}"/></td>
             <td>
-          <form action="MensajeControl" method="post">
-            <input type="hidden" name="id" value="${p.getId()}">
+          <form action="../EmpleadoControl" method="get">
+            <input type="hidden" name="id" value="${p.id}">
             <div class="form-group row">
               <div class="col-sm-12">
                 <button type="submit" name="accion" value="editar"

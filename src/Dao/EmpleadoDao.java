@@ -3,6 +3,7 @@ package Dao;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 
 import Dto.Empleado;
 import Util.Conexion;
@@ -47,7 +48,7 @@ public class EmpleadoDao {
 			 } catch (Exception e) {
 			 e.printStackTrace();
 			 }finally {
-			 em.close();
+			// em.close();
 			 }
 		
 		 
@@ -64,11 +65,24 @@ public class EmpleadoDao {
 			 } catch (Exception e) {
 			 e.printStackTrace();
 			 }finally {
-			 em.close();
+			 //em.close();
 			 }
 		
 		 
 		 
+	 }
+	 
+	 
+	 public int devuelveE(int x) {
+		 int y=0;
+		 Query nativeQuery = em.createNativeQuery("SELECT id FROM Empleado WHERE persona = ?");
+	        nativeQuery.setParameter(1, x);
+	        int result = (int) nativeQuery.getSingleResult();
+	        Empleado e = new Empleado();
+	        e.setId(result);
+	        y=e.getId();
+	      
+		 return y;
 	 }
 	 
 	 public void buscar (Integer m) {
@@ -81,7 +95,7 @@ public class EmpleadoDao {
 			 } catch (Exception e) {
 			 e.printStackTrace();
 			 }finally {
-			 em.close();
+			// em.close();
 			 }
 		
 		 

@@ -21,6 +21,7 @@ public class EmpleadoControl extends HttpServlet {
 	Persona p = new Persona();
 	Persona p1 = new Persona();
 	PersonaDao pD = new PersonaDao();
+	PersonaDao pD1 = new PersonaDao();
 	Empleado e = new Empleado();
 	EmpleadoDao eD= new EmpleadoDao();
 	Cargo c =new Cargo();
@@ -81,6 +82,16 @@ public class EmpleadoControl extends HttpServlet {
 			
 			break;
 
+        case "eliminar":
+        	
+			int id = Integer.parseInt(request.getParameter("id"));
+			int y = eD.devuelveE(id);
+			eD.eliminar(y);
+			//int x = pD1.buscar(id);
+			pD1.eliminar(id);
+			String site2 = new String("http://localhost:8080/ConsultoriaZ/WebApp/listarEmpleado.jsp");
+			response.setStatus(response.SC_MOVED_TEMPORARILY);
+			response.setHeader("Location", site2);
 		default:
 			break;
 		}

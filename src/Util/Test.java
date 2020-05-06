@@ -11,10 +11,12 @@ public class Test {
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-    PersonaDao p = new PersonaDao();
-    PersonaDao p1 = new PersonaDao(); 
-    p1.validar("1092","1234");
-    
+ PersonaDao pD =new PersonaDao();
+ EmpleadoDao eD = new EmpleadoDao();
+ //pD.listar();
+ //pD.buscar(3);
+ eD.devuelveE(9);
+
 
 	}
 

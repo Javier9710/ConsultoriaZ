@@ -39,13 +39,20 @@ public class PersonaDao {
 		return p;
 	}
 	
-	public List<Persona> listar1() {
-		//List<Persona> lista = new ArrayList<>();
-		  return (List<Persona>)  em.createNativeQuery("SELECT p.cedula, p.nombre, p.edad, p.telefono, p.foto "
-				 + "FROM Persona p,  Empleado e,  Cargo c "
-                 + "WHERE p.id = e.persona "
-                 + "AND e.cargo=c.id ").getResultList();
+	public List<Persona> listar() {
 		
+		 return (List<Persona>) em.createNativeQuery("SELECT p.foto,p.cedula, p.nombre, p.edad, p.telefono "
+				 + "FROM Persona p "
+                 + "WHERE p.id = e.persona "
+                 ).getResultList();
+		  //List<Persona> results = x.getResultList();
+		  //System.out.println(results[0].);
+		   //Persona p = new Persona();
+		  // p.setFoto(""+(String)results[0]);
+		   //p.setFoto((String)result[0]);
+		   //System.out.println("foto "+ p.getFoto());
+		
+
 		//Persona p = new Persona();
 		//p.setCedula((String) result[0]);
 		//p.setNombre((String) result[1]);
@@ -54,13 +61,15 @@ public class PersonaDao {
 		//p.setFoto((String) result[4]);
 		//lista.add(p);
 		
+		
+	}
 	
+	public List<Persona> listar1(){
+		return (List<Persona>) em.createQuery("SELECT p from Persona p, Empleado e Where p.id=e.persona").getResultList();	
+		
 	}
 
-	public List<Persona> listar() {
-		return (List<Persona>) em.createQuery("select x from Persona x").getResultList();
-
-	}
+	
 
 	public void registrar(Persona persona) {
 		try {
@@ -98,23 +107,27 @@ public class PersonaDao {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			em.close();
+			//em.close();
 		}
 
 	}
 
-	public void buscar(Integer m) {
+	public int buscar(int m) {
+		int id=0;
 		try {
 			em.getTransaction().begin();
 			Persona u = em.find(Persona.class, m);
 			em.getTransaction().commit();
-			// System.out.println(u.getUsuario());
+			//System.out.println(u.getNombre());
+			id=u.getId();
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			em.close();
+			//em.close();
 		}
+		
+		return id;
 
 	}
 	
