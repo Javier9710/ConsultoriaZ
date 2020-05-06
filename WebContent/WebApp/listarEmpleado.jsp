@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ page import="java.util.List"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -54,7 +57,7 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="regEmpleado.jsp">Registrar Empleado</a>
-            <a class="collapse-item" href="EmpleadoControl?accion=listar">Listar Empleados</a>
+            <a class="collapse-item" href="../EmpleadoControl?accion=listar">Listar Empleados</a>
           </div>
         </div>
       </li>
@@ -169,8 +172,13 @@
        
        <div class="container-fluid" style="background-image: url(https://www.publicdomainpictures.net/pictures/280000/velka/gradient-yellow-to-blue-background.jpg); height: 100%;" >
         <div class="row justify-content-center align-self-center" style="background-color: white;"><br>
+        
+	
 
           <legend class="text-center header" style="color: black;">Listado de Empleados</legend>
+          
+          <jsp:useBean id="pD" class="Dao.PersonaDao" scope="request"></jsp:useBean>
+          
           <table class="table">
       <thead>
         <tr>
@@ -178,7 +186,7 @@
           <th style="text-align: center" scope="col">Cedula</th>
           <th style="text-align: center" scope="col">Nombre</th>
           <th style="text-align: center" scope="col">Edad</th>
-          <th style="text-align: center" scope="col">Cargo</th>
+          <th style="text-align: center" scope="col">Telefono</th>
           <th style="text-align: center" scope="col">Acciones</th>
         </tr>
       </thead>
@@ -187,18 +195,18 @@
 
 
 
-        <c:forEach var="d" items="${lista}">
+        <c:forEach var="p" items="${pD.listar1()}">
 
           <tr>
-            <td style="text-align: center"><img src="${d.getFoto()}"
-              with="120px" height="120px"></td>
-            <td style="text-align: center">${d.getCedula()}</td>
-            <td style="text-align: center">${d.getNombre()}</td>
-            <td style="text-align: center">${d.getEdad()}</td>
-            <td style="text-align: center">${d.getCargo()}</td>
+            <td style="text-align: center"><img src="<c:out value="${p.getFoto()}"/>"
+              with="120px" height="120px"></td> 
+            <td style="text-align: center"><c:out value="${p.getCedula()}"/></td>
+            <td style="text-align: center"><c:out value="${p.getNombre()}"/></td>
+            <td style="text-align: center"><c:out value="${p.getEdad()}"/></td>
+            <td style="text-align: center"><c:out value="${p.getCargo()}"/></td>
             <td>
           <form action="MensajeControl" method="post">
-            <input type="hidden" name="id" value="${m.getId()}">
+            <input type="hidden" name="id" value="${p.getId()}">
             <div class="form-group row">
               <div class="col-sm-12">
                 <button type="submit" name="accion" value="editar"

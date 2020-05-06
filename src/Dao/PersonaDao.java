@@ -2,10 +2,12 @@ package Dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
+import javax.servlet.http.Part;
 
 import Dto.Persona;
 import Util.Conexion;
@@ -30,11 +32,29 @@ public class PersonaDao {
 	        Object[] result = (Object[]) nativeQuery.getSingleResult();
 	        p.setNombre((String) result[0]);
 	        p.setEdad((Integer) result[1]);
-	        System.out.println(p.getNombre());
-	        System.out.println(p.getEdad());
+	        //System.out.println(p.getNombre());
+	        //System.out.println(p.getEdad());
 	       
 	
 		return p;
+	}
+	
+	public List<Persona> listar1() {
+		//List<Persona> lista = new ArrayList<>();
+		  return (List<Persona>)  em.createNativeQuery("SELECT p.cedula, p.nombre, p.edad, p.telefono, p.foto "
+				 + "FROM Persona p,  Empleado e,  Cargo c "
+                 + "WHERE p.id = e.persona "
+                 + "AND e.cargo=c.id ").getResultList();
+		
+		//Persona p = new Persona();
+		//p.setCedula((String) result[0]);
+		//p.setNombre((String) result[1]);
+		//p.setEdad((Integer) result[2]);
+		//p.setTelefono((String) result[3]);
+		//p.setFoto((String) result[4]);
+		//lista.add(p);
+		
+	
 	}
 
 	public List<Persona> listar() {
@@ -96,6 +116,16 @@ public class PersonaDao {
 			em.close();
 		}
 
+	}
+	
+	public String fileName(final Part part) {
+	    for (String content : part.getHeader("content-disposition").split(";")) {
+	        if (content.trim().startsWith("filename")) {
+	            return content.substring(
+	                    content.indexOf('=') + 1).trim().replace("\"", "");
+	        }
+	    }
+	    return null;
 	}
 
 }

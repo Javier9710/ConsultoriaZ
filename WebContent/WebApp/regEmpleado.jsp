@@ -56,7 +56,7 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="regEmpleado.jsp">Registrar Empleado</a>
-            <a class="collapse-item" href="EmpleadoControl?accion=listar">Listar Empleados</a>
+            <a class="collapse-item" href="../EmpleadoControl?accion=listar">Listar Empleados</a>
           </div>
         </div>
       </li>
@@ -179,7 +179,7 @@
 
 ;" style="border-radius: 20px;">
               
-                <form method="post" action="../EmpleadoControl" enctype="multipart/form-data">
+                <form method="GET" action="../EmpleadoControl" enctype="multipart/form-data">
                   
                <legend class="text-center header" style="color: black;">Registrar Empleado</legend>
 
@@ -213,22 +213,15 @@
                 </div>
 
                 <div class="form-group row">
-                    <label  class="col-sm-1 col-form-label" style="color: black;">Fecha</label>
-                      <div class="col-sm-11">
-                           <input type="date" class="form-control" name="fecha" placeholder="Fecha" required="Llena este campo">
-                     </div>
-                </div>
-
-                <div class="form-group row">
                     <label class="col-sm-1 col-form-label" style="color: black;">Foto</label>
                       <div class="col-sm-11">
-                           <input type="file" class="form-control" name="foto" placeholder="Foto" required="Llena este campo">
+                           <input type="file" class="form-control-file" name="foto" placeholder="Foto" required="Llena este campo">
                      </div>
                 </div>
 
                  <div class="form-group">
                   <div class="col-md-12 text-center">
-                    <button  type="submit" value="registrar" name="accion" style="width: 40%;" class="btn btn-primary" >Registrar</button>
+                    <button  type="submit" name="accion" value="registro"  style="width: 40%;" class="btn btn-primary" >Registrar</button>
                   </div>
                 </div>
              

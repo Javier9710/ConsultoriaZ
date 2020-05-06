@@ -43,28 +43,8 @@ public class EmpleadoControl extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String accion = request.getParameter("accion");
-		if (accion.equalsIgnoreCase("listar")) {
-			System.out.println("hola");
-			PersonaDao mD = new PersonaDao();
-			String site = new String("http://localhost:8080/ConsultoriaZ/WebApp/listarEmpleado.jsp");
-			response.setStatus(response.SC_MOVED_TEMPORARILY);
-			response.setHeader("Location", site);
-			
-		}
-	
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-	
-		String accion = request.getParameter("accion");
 		switch (accion) {
-		case "registrar":
+		case "registro":
 			//atributos Persona
 			String cedula = request.getParameter("cedula");
 			String nombre = request.getParameter("nombre");
@@ -87,25 +67,37 @@ public class EmpleadoControl extends HttpServlet {
 			e.setPersona(p1);
 			p1.setId(p.getId());
 			eD.registrar(e);
-			request.getRequestDispatcher("regEmpleado.jsp").forward(request, response);
+			String site = new String("http://localhost:8080/ConsultoriaZ/WebApp/regEmpleado.jsp");
+			response.setStatus(response.SC_MOVED_TEMPORARILY);
+			response.setHeader("Location", site);
 			break;
 			
-
-		case "editar":
-
-			break;
-
-		case "eliminar":
-			int id = Integer.parseInt(request.getParameter("id"));
-			eD.eliminar(id);
-			pD.eliminar(id);
-			request.getRequestDispatcher("listarEmpleado.jsp").forward(request, response);
-			break;
+        case "listar":
+        	
+        	PersonaDao pD = new PersonaDao();
+			String site1 = new String("http://localhost:8080/ConsultoriaZ/WebApp/listarEmpleado.jsp");
+			response.setStatus(response.SC_MOVED_TEMPORARILY);
+			response.setHeader("Location", site1);
 			
+			break;
 
 		default:
 			break;
 		}
-	}
+		
+	
+			
+		}
+	
 
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		// TODO Auto-generated method stub
+
+
+	}
 }
