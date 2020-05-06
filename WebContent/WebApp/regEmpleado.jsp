@@ -179,20 +179,20 @@
 
 ;" style="border-radius: 20px;">
               
-                <form method="post" action="EmpleadoControl" enctype="multipart/form-data">
+                <form method="post" action="../EmpleadoControl" enctype="multipart/form-data">
                   
                <legend class="text-center header" style="color: black;">Registrar Empleado</legend>
 
                 <div class="form-group">
-                    <input _ngcontent-c0="" class="form-control" name="" placeholder="Cedula" type="text" required>
+                    <input _ngcontent-c0="" class="form-control" name="cedula" placeholder="Cedula" type="text" required>
                 </div>
 
                 <div class="form-group">
-                    <input _ngcontent-c0="" class="form-control" name="" placeholder="Nombre" type="text" required>
+                    <input _ngcontent-c0="" class="form-control" name="nombre" placeholder="Nombre" type="text" required>
                 </div>
 
                 <div class="form-group">
-                    <input _ngcontent-c0="" class="form-control" name="" placeholder="Edad" type="text" required>
+                    <input _ngcontent-c0="" class="form-control" name="edad" placeholder="Edad" type="text" required>
                 </div>
                 
                 <div class="form-group">
@@ -205,24 +205,24 @@
                 </div>
                
                 <div class="form-group">
-                    <input _ngcontent-c0="" class="form-control"  name="" placeholder="Telefono" type="text" required>
+                    <input _ngcontent-c0="" class="form-control"  name="telefono" placeholder="Telefono" type="text" required>
                 </div>
 
                 <div class="form-group">
-                   <input _ngcontent-c0=""  name="" type="password" placeholder="Contraseña" class="form-control" required>
+                   <input _ngcontent-c0=""  name="pass" type="password" placeholder="Contraseña" class="form-control" required>
                 </div>
 
                 <div class="form-group row">
                     <label  class="col-sm-1 col-form-label" style="color: black;">Fecha</label>
                       <div class="col-sm-11">
-                           <input type="date" class="form-control" name="" placeholder="Fecha" required="Llena este campo">
+                           <input type="date" class="form-control" name="fecha" placeholder="Fecha" required="Llena este campo">
                      </div>
                 </div>
 
                 <div class="form-group row">
                     <label class="col-sm-1 col-form-label" style="color: black;">Foto</label>
                       <div class="col-sm-11">
-                           <input type="file" class="form-control" name="" placeholder="Foto" required="Llena este campo">
+                           <input type="file" class="form-control" name="foto" placeholder="Foto" required="Llena este campo">
                      </div>
                 </div>
 

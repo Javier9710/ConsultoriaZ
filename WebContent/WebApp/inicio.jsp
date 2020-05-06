@@ -54,7 +54,7 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="regEmpleado.jsp">Registrar Empleado</a>
-            <a class="collapse-item" href="EmpleadoControl?accion=listar">Listar Empleados</a>
+            <a class="collapse-item" href="../EmpleadoControl?accion=listar">Listar Empleados</a>
           </div>
         </div>
       </li>

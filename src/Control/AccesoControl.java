@@ -46,14 +46,16 @@ public class AccesoControl extends HttpServlet {
 		String accion = request.getParameter("accion");
 		
 		switch (accion) {
-		case "ingresar":
+		case "ingreso":
 			String cedula = request.getParameter("cedula");
 			String pass = request.getParameter("pass");
 			p = pD.validar(cedula, pass);
 			if(p!=null) {
 				HttpSession sesion = request.getSession();
 				sesion.setAttribute("persona", p);
-				request.getRequestDispatcher("inicio.jsp").forward(request, response);
+				String site = new String("http://localhost:8080/ConsultoriaZ/WebApp/inicio.jsp");
+				response.setStatus(response.SC_MOVED_TEMPORARILY);
+				response.setHeader("Location", site);
 			}
 			
 			

@@ -42,7 +42,16 @@ public class EmpleadoControl extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		String accion = request.getParameter("accion");
+		if (accion.equalsIgnoreCase("listar")) {
+			System.out.println("hola");
+			PersonaDao mD = new PersonaDao();
+			String site = new String("http://localhost:8080/ConsultoriaZ/WebApp/listarEmpleado.jsp");
+			response.setStatus(response.SC_MOVED_TEMPORARILY);
+			response.setHeader("Location", site);
+			
+		}
+	
 	}
 
 	/**
@@ -52,6 +61,7 @@ public class EmpleadoControl extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
+	
 		String accion = request.getParameter("accion");
 		switch (accion) {
 		case "registrar":
@@ -92,12 +102,6 @@ public class EmpleadoControl extends HttpServlet {
 			request.getRequestDispatcher("listarEmpleado.jsp").forward(request, response);
 			break;
 			
-		case "listar":
-			PersonaDao mD = new PersonaDao();
-			request.getRequestDispatcher("mensaje.jsp").forward(request, response);
-			
-			
-			break;
 
 		default:
 			break;

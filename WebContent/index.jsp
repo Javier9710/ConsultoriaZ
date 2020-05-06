@@ -28,7 +28,7 @@
         
             <label for="inputEmail3" style="text-align: left;" class="col-sm-3 col-form-label">Cedula</label>
             <div class="col-sm-9">
-            <input type="text" class="form-control" name="AccesoControl" placeholder="Cedula" required="Llena este campo">
+            <input type="text" class="form-control" name="cedula" placeholder="Cedula" required="Llena este campo">
            </div>
           </div>
           <div class="form-group row">
