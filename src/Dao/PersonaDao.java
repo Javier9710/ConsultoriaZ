@@ -1,91 +1,101 @@
 package Dao;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 
 import Dto.Persona;
 import Util.Conexion;
 
-
 public class PersonaDao {
-	
-	EntityManager em=null;
-	
+
+	EntityManager em = null;
+
 	public PersonaDao() {
 		em = Conexion.getEm();
-		
-		
-	}
-	
-	public List<Persona> listar(){
-		return (List<Persona>) em.createQuery("select x from Persona x").getResultList();	
-		
-	}
-	
-	
-	 public void registrar (Persona persona) {
-		 try {
-			 em.getTransaction().begin();
-			 em.persist(persona);
-			 em.getTransaction().commit();
-			 } catch (Exception e) {
-			 e.printStackTrace();
-			 }finally {
-			 //em.close();
-			 }
-		
-		 
-		 
-	 }
-	 
-	 public void actualizar (Persona persona) {
-		 try {
-			 em.getTransaction().begin();
-			 em.merge(persona);
-			 em.getTransaction().commit();
-			 } catch (Exception e) {
-			 e.printStackTrace();
-			 }finally {
-			 em.close();
-			 }
-		
-		 
-		 
-	 }
-	 
-	 public void eliminar (int id){
-		 try {
 
-			 Persona u = em.find(Persona.class, id);
-			 em.getTransaction().begin();
-			 em.remove(u);
-			 em.getTransaction().commit();
-			 } catch (Exception e) {
-			 e.printStackTrace();
-			 }finally {
-			 em.close();
-			 }
-		
-		 
-		 
-	 }
-	 
-	 public void buscar (Integer m) {
-		 try {
-			 em.getTransaction().begin();
-			 Persona u = em.find(Persona.class, m);
-			 em.getTransaction().commit();
-			 //System.out.println(u.getUsuario());	
-			  
-			 } catch (Exception e) {
-			 e.printStackTrace();
-			 }finally {
-			 em.close();
-			 }
-		
-		 
-		 
-	 }
+	}
+
+	public Persona validar(String cedula, String pass) {
+		Persona p = new Persona();
+		 Query nativeQuery = em.createNativeQuery("SELECT nombre,edad FROM Persona p, Admin a "
+		 		                                 + "WHERE p.cedula =? "
+		 		                                 + "and p.id=a.persona "
+		 		                                 + "and a.pass=?");
+	        nativeQuery.setParameter(1, cedula);
+	        nativeQuery.setParameter(2, pass);
+	        Object[] result = (Object[]) nativeQuery.getSingleResult();
+	        p.setNombre((String) result[0]);
+	        p.setEdad((Integer) result[1]);
+	        System.out.println(p.getNombre());
+	        System.out.println(p.getEdad());
+	       
+	
+		return p;
+	}
+
+	public List<Persona> listar() {
+		return (List<Persona>) em.createQuery("select x from Persona x").getResultList();
+
+	}
+
+	public void registrar(Persona persona) {
+		try {
+			em.getTransaction().begin();
+			em.persist(persona);
+			em.getTransaction().commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			// em.close();
+		}
+
+	}
+
+	public void actualizar(Persona persona) {
+		try {
+			em.getTransaction().begin();
+			em.merge(persona);
+			em.getTransaction().commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			em.close();
+		}
+
+	}
+
+	public void eliminar(int id) {
+		try {
+
+			Persona u = em.find(Persona.class, id);
+			em.getTransaction().begin();
+			em.remove(u);
+			em.getTransaction().commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			em.close();
+		}
+
+	}
+
+	public void buscar(Integer m) {
+		try {
+			em.getTransaction().begin();
+			Persona u = em.find(Persona.class, m);
+			em.getTransaction().commit();
+			// System.out.println(u.getUsuario());
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			em.close();
+		}
+
+	}
 
 }

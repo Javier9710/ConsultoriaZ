@@ -21,23 +21,23 @@
       <h2 id="nom">Consultorias Zambrano</h2>
       <h5 id="nom2">Sector de Ingenieria</h5>
       <hr>
-        <form id="formLogin" method="post" action="">
+        <form id="formLogin" method="post" action="AccesoControl">
  
           <div class="form-group row"><br>
         
-            <label for="inputEmail3" style="text-align: left;" class="col-sm-3 col-form-label">Usuario</label>
+            <label for="inputEmail3" style="text-align: left;" class="col-sm-3 col-form-label">Cedula</label>
             <div class="col-sm-9">
-            <input type="email" class="form-control" name="" placeholder="Usuario" required="Llena este campo">
+            <input type="text" class="form-control" name="AccesoControl" placeholder="Cedula" required="Llena este campo">
            </div>
           </div>
           <div class="form-group row">
            <label for="inputPassword3" style="text-align: left;" class="col-sm-3 col-form-label">Contraseña</label>
           <div class="col-sm-9">
-          <input type="password" class="form-control" name="" placeholder="Contraseña" required="Llena este campo">
+          <input type="password" class="form-control" name="pass" placeholder="Contraseña" required="Llena este campo">
           </div>
          </div>
   <div class="col-sm-12">
-      <button type="submit" name="accion" value="" class="btn btn-dark" >Iniciar Sesión</button><br><br>
+      <button type="submit" name="accion" value="ingreso" class="btn btn-dark" >Iniciar Sesión</button><br><br>
     </div>
 
   </form>
