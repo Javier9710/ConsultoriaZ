@@ -32,7 +32,7 @@ public class PersonaDao {
 			 } catch (Exception e) {
 			 e.printStackTrace();
 			 }finally {
-			 em.close();
+			 //em.close();
 			 }
 		
 		 
