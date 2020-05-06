@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,15 +11,15 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Registar Empleado</title>
+  <title>Listar Empleado</title>
 
   <!-- Custom fonts for this template-->
   <link href="../carpetaplantilla/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  <link rel="shortcut icon" href="../carpetaplantilla/img/icon.png">
 
   <!-- Custom styles for this template-->
   <link href="../carpetaplantilla/css/sb-admin-2.min.css" rel="stylesheet">
-  <link rel="shortcut icon" href="../carpetaplantilla/img/icon.png">
 
 </head>
 
@@ -169,74 +167,59 @@
 
 
        
-       <div class="container-fluid" style="background-image: url(https://www.publicdomainpictures.net/pictures/280000/velka/gradient-yellow-to-blue-background.jpg);"><br>
+       <div class="container-fluid" style="background-image: url(https://www.publicdomainpictures.net/pictures/280000/velka/gradient-yellow-to-blue-background.jpg); height: 100%;" >
+        <div class="row justify-content-center align-self-center" style="background-color: white;"><br>
 
-          <!-- Page Heading -->
+          <legend class="text-center header" style="color: black;">Listado de Empleados</legend>
+          <table class="table">
+      <thead>
+        <tr>
+          <th style="text-align: center" scope="col">Foto</th>
+          <th style="text-align: center" scope="col">Cedula</th>
+          <th style="text-align: center" scope="col">Nombre</th>
+          <th style="text-align: center" scope="col">Edad</th>
+          <th style="text-align: center" scope="col">Cargo</th>
+          <th style="text-align: center" scope="col">Acciones</th>
+        </tr>
+      </thead>
 
-          <div class="row justify-content-center align-self-center" >
+      <tbody>
 
-            <div class="col col-sm-9 col-md-9 col-lg-6 col-xl-6 h-100" style="background-color: #a7c0cd
 
-;" style="border-radius: 20px;">
-              
-                <form method="post" action="EmpleadoControl" enctype="multipart/form-data">
-                  
-               <legend class="text-center header" style="color: black;">Registrar Empleado</legend>
 
-                <div class="form-group">
-                    <input _ngcontent-c0="" class="form-control" name="" placeholder="Cedula" type="text" required>
-                </div>
+        <c:forEach var="d" items="${lista}">
 
-                <div class="form-group">
-                    <input _ngcontent-c0="" class="form-control" name="" placeholder="Nombre" type="text" required>
-                </div>
-
-                <div class="form-group">
-                    <input _ngcontent-c0="" class="form-control" name="" placeholder="Edad" type="text" required>
-                </div>
-                
-                <div class="form-group">
-                    <select class="form-control" name="cargo" >
-                      <option>Cargo</option>
-                      <option value="1">Asesor</option>
-                      <option value="2">Abogado</option>
-                      <option value="3">Gerente</option>
-                   </select>
-                </div>
-               
-                <div class="form-group">
-                    <input _ngcontent-c0="" class="form-control"  name="" placeholder="Telefono" type="text" required>
-                </div>
-
-                <div class="form-group">
-                   <input _ngcontent-c0=""  name="" type="password" placeholder="Contraseña" class="form-control" required>
-                </div>
-
-                <div class="form-group row">
-                    <label  class="col-sm-1 col-form-label" style="color: black;">Fecha</label>
-                      <div class="col-sm-11">
-                           <input type="date" class="form-control" name="" placeholder="Fecha" required="Llena este campo">
-                     </div>
-                </div>
-
-                <div class="form-group row">
-                    <label class="col-sm-1 col-form-label" style="color: black;">Foto</label>
-                      <div class="col-sm-11">
-                           <input type="file" class="form-control" name="" placeholder="Foto" required="Llena este campo">
-                     </div>
-                </div>
-
-                 <div class="form-group">
-                  <div class="col-md-12 text-center">
-                    <button  type="submit" value="registrar" name="accion" style="width: 40%;" class="btn btn-primary" >Registrar</button>
-                  </div>
-                </div>
-             
-               
-              </form>
-              
+          <tr>
+            <td style="text-align: center"><img src="${d.getFoto()}"
+              with="120px" height="120px"></td>
+            <td style="text-align: center">${d.getCedula()}</td>
+            <td style="text-align: center">${d.getNombre()}</td>
+            <td style="text-align: center">${d.getEdad()}</td>
+            <td style="text-align: center">${d.getCargo()}</td>
+            <td>
+          <form action="MensajeControl" method="post">
+            <input type="hidden" name="id" value="${m.getId()}">
+            <div class="form-group row">
+              <div class="col-sm-12">
+                <button type="submit" name="accion" value="editar"
+                  class="btn btn-primary btn-lg">Editar</button>
+                <button type="submit" name="accion" value="eliminar"
+                  class="btn btn-primary btn-lg">Eliminar</button>
+              </div>
             </div>
-          </div><br>
+          </form>
+        </td>
+          </tr>
+
+        </c:forEach>
+
+
+
+      </tbody>
+
+    </table>
+
+       </div>
       </div>
       <!-- End of Main Content -->
 
