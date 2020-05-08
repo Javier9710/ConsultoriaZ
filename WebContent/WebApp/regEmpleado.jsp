@@ -63,13 +63,13 @@
       
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCliente" aria-expanded="true" aria-controls="collapseCliente">
           <i class="fas fa-fw fa-user"></i>
           <span>Cliente</span>
         </a>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div id="collapseCliente" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="regEmpleado.jsp">Registrar Cliente</a>
+            <a class="collapse-item" href="regCliente.jsp">Registrar Cliente</a>
             <a class="collapse-item" href="../ClienteControl?accion=listar">Listar Cliente</a>
           </div>
         </div>
