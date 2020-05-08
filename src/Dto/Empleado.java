@@ -20,27 +20,17 @@ public class Empleado implements Serializable  {
 	 */
 	private static final long serialVersionUID = 8374843910073210378L;
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	@OneToOne
+	@JoinColumn(name="persona")
+	private Persona persona;
 	private String pass;
 	@ManyToOne
 	@JoinColumn(name="cargo")
 	private Cargo cargo;
-	@OneToOne
-	@JoinColumn(name="persona")
-	private Persona persona;
+
 
 	public Empleado() {
 
-	}
-	
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
 	}
 
 	public String getPass() {

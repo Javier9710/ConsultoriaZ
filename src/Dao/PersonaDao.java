@@ -25,7 +25,7 @@ public class PersonaDao {
 		Persona p = new Persona();
 		 Query nativeQuery = em.createNativeQuery("SELECT nombre,edad FROM Persona p, Admin a "
 		 		                                 + "WHERE p.cedula =? "
-		 		                                 + "and p.id=a.persona "
+		 		                                 + "and p.cedula=a.persona "
 		 		                                 + "and a.pass=?");
 	        nativeQuery.setParameter(1, cedula);
 	        nativeQuery.setParameter(2, pass);
@@ -65,7 +65,7 @@ public class PersonaDao {
 	}
 	
 	public List<Persona> listar1(){
-		return (List<Persona>) em.createQuery("SELECT p from Persona p, Empleado e Where p.id=e.persona").getResultList();	
+		return (List<Persona>) em.createQuery("SELECT p from Persona p, Empleado e Where p.cedula=e.persona").getResultList();	
 		
 	}
 
@@ -92,12 +92,12 @@ public class PersonaDao {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			em.close();
+			//em.close();
 		}
 
 	}
 
-	public void eliminar(int id) {
+	public void eliminar(String id) {
 		try {
 
 			Persona u = em.find(Persona.class, id);
@@ -119,7 +119,7 @@ public class PersonaDao {
 			Persona u = em.find(Persona.class, m);
 			em.getTransaction().commit();
 			//System.out.println(u.getNombre());
-			id=u.getId();
+			//id=u.getId();
 
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -55,7 +55,7 @@ public class EmpleadoDao {
 		 
 	 }
 	 
-	 public void eliminar (int id){
+	 public void eliminar (String id){
 		 try {
 
 			 Empleado u = em.find(Empleado.class, id);
@@ -72,18 +72,18 @@ public class EmpleadoDao {
 		 
 	 }
 	 
-	 
-	 public int devuelveE(int x) {
-		 int y=0;
-		 Query nativeQuery = em.createNativeQuery("SELECT id FROM Empleado WHERE persona = ?");
+/*	 
+	 public String devuelveE(String x) {
+		 String y="";
+		 Query nativeQuery = em.createNativeQuery("SELECT persona FROM Empleado WHERE persona = ?");
 	        nativeQuery.setParameter(1, x);
-	        int result = (int) nativeQuery.getSingleResult();
+	        String result = (String) nativeQuery.getSingleResult();
 	        Empleado e = new Empleado();
-	        e.setId(result);
+	        e.setPersona(result);;
 	        y=e.getId();
 	      
 		 return y;
-	 }
+	 }*/
 	 
 	 public void buscar (Integer m) {
 		 try {
