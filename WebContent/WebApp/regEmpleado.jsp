@@ -60,7 +60,20 @@
           </div>
         </div>
       </li>
-
+      
+      <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+          <i class="fas fa-fw fa-user"></i>
+          <span>Cliente</span>
+        </a>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="regEmpleado.jsp">Registrar Cliente</a>
+            <a class="collapse-item" href="../ClienteControl?accion=listar">Listar Cliente</a>
+          </div>
+        </div>
+      </li>
       <!-- Nav Item - Utilities Collapse Menu -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
@@ -175,9 +188,7 @@
 
           <div class="row justify-content-center align-self-center" >
 
-            <div class="col col-sm-9 col-md-9 col-lg-6 col-xl-6 h-100" style="background-color: #a7c0cd
-
-;" style="border-radius: 20px;">
+            <div class="col col-sm-9 col-md-9 col-lg-6 col-xl-6 h-100" style="background-color: #a7c0cd;" style="border-radius: 20px;">
               
                 <form method="GET" action="../EmpleadoControl" enctype="multipart/form-data">
                   

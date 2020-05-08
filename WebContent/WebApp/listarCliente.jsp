@@ -1,18 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    
-<!DOCTYPE html>
-<html lang="en">
-
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <head>
-
-  <meta charset="utf-8">
+<meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Inicio</title>
+  <title>Listar Cliente</title>
 
   <!-- Custom fonts for this template-->
   <link href="../carpetaplantilla/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -23,10 +22,8 @@
   <link href="../carpetaplantilla/css/sb-admin-2.min.css" rel="stylesheet">
 
 </head>
-
 <body id="page-top">
-
-  <!-- Page Wrapper -->
+<!-- Page Wrapper -->
   <div id="wrapper">
 
     <!-- Sidebar -->
@@ -59,7 +56,6 @@
           </div>
         </div>
       </li>
-      
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
@@ -88,12 +84,8 @@
           </div>
         </div>
       </li>
-
-     
-
-     
-
-      <!-- Divider -->
+      
+        <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
 
       <!-- Sidebar Toggler (Sidebar) -->
@@ -102,10 +94,8 @@
       </div>
 
     </ul>
-
-    <!-- End of Sidebar -->
-
-    <!-- Content Wrapper -->
+    
+     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
 
       <!-- Main Content -->
@@ -179,22 +169,68 @@
 
         </nav>
     </div>
+    
+    <div class="container-fluid" style="background-image: url(https://www.publicdomainpictures.net/pictures/280000/velka/gradient-yellow-to-blue-background.jpg); height: 100%;" >
+        <div class="row justify-content-center align-self-center" style="background-color: white;"><br>
+        
+	
+
+          <legend class="text-center header" style="color: black;">Listado de Clientes</legend>
+          
+          <jsp:useBean id="pD" class="Dao.PersonaDao" scope="request"></jsp:useBean>
+          
+          <table class="table">
+      <thead>
+        <tr>
+          
+          <th style="text-align: center" scope="col">Nit</th>
+          <th style="text-align: center" scope="col">Nombre</th>
+          <th style="text-align: center" scope="col">Fecha</th>
+          <th style="text-align: center" scope="col">Direccion</th>
+          <th style="text-align: center" scope="col">Acciones</th>
+        </tr>
+      </thead>
+
+      <tbody>
 
 
-       
-       <div class="container-fluid" style="background-image: url(https://www.publicdomainpictures.net/pictures/280000/velka/gradient-yellow-to-blue-background.jpg ); height: 100%;" >
-<div class="row justify-content-center align-self-center" style="background-color: white;"><br>
 
-          <legend class="text-center header" style="color: black;">Listado de Empleados</legend>
+        <c:forEach var="p" items="${pD.listar1()}">
 
-               <legend class="text-center header" style="color: black;">BIENVENIDO</legend>
- 
-       
-      </div>
+          <tr>
+            
+            <td style="text-align: center"><c:out value="${p.nit}"/></td>
+            <td style="text-align: center"><c:out value="${p.nombre}"/></td>
+            <td style="text-align: center"><c:out value="${p.fecha}"/></td>
+            <td style="text-align: center"><c:out value="${p.direccion}"/></td>
+            <td>
+          <form action="../ClienteControl" method="get">
+            <input type="hidden" name="id" value="${p.id}">
+            <div class="form-group row">
+              <div class="col-sm-12">
+                <button type="submit" name="accion" value="editar"
+                  class="btn btn-primary btn-lg">Editar</button>
+                <button type="submit" name="accion" value="eliminar"
+                  class="btn btn-primary btn-lg">Eliminar</button>
+              </div>
+            </div>
+          </form>
+        </td>
+          </tr>
+
+        </c:forEach>
+
+
+
+      </tbody>
+
+    </table>
+
+       </div>
       </div>
       <!-- End of Main Content -->
-
-      <!-- Footer -->
+      
+ <!-- Footer -->
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
@@ -227,7 +263,7 @@
 
   <!-- Custom scripts for all pages-->
   <script src="../carpetaplantilla/js/sb-admin-2.min.js"></script>
-
+      
+     
 </body>
-
 </html>
