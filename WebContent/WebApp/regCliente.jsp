@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    
-<!DOCTYPE html>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 
 <head>
@@ -12,21 +13,19 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Inicio</title>
+  <title>Registar Cliente</title>
 
   <!-- Custom fonts for this template-->
   <link href="../carpetaplantilla/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-  <link rel="shortcut icon" href="../carpetaplantilla/img/icon.png">
 
   <!-- Custom styles for this template-->
   <link href="../carpetaplantilla/css/sb-admin-2.min.css" rel="stylesheet">
+  <link rel="shortcut icon" href="../carpetaplantilla/img/icon.png">
 
 </head>
-
 <body id="page-top">
-
-  <!-- Page Wrapper -->
+<!-- Page Wrapper -->
   <div id="wrapper">
 
     <!-- Sidebar -->
@@ -73,7 +72,6 @@
           </div>
         </div>
       </li>
-
       <!-- Nav Item - Utilities Collapse Menu -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
@@ -88,11 +86,7 @@
           </div>
         </div>
       </li>
-
-     
-
-     
-
+      
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
 
@@ -153,8 +147,8 @@
                 </form>
               </div>
             </li>
-
-            <!-- Nav Item - Alerts -->
+            
+          <!-- Nav Item - Alerts -->
             
 
             <div class="topbar-divider d-none d-sm-block"></div>
@@ -179,21 +173,40 @@
 
         </nav>
     </div>
+          <div class="container-fluid" style="background-image: url(https://www.publicdomainpictures.net/pictures/280000/velka/gradient-yellow-to-blue-background.jpg);"><br>
 
+          <!-- Page Heading -->
 
-       
-       <div class="container-fluid" style="background-image: url(https://www.publicdomainpictures.net/pictures/280000/velka/gradient-yellow-to-blue-background.jpg ); height: 100%;" >
-<div class="row justify-content-center align-self-center" style="background-color: white;"><br>
+          <div class="row justify-content-center align-self-center" >
 
-          <legend class="text-center header" style="color: black;">Listado de Empleados</legend>
+            <div class="col col-sm-9 col-md-9 col-lg-6 col-xl-6 h-100" style="background-color: #a7c0cd;" style="border-radius: 20px;">
+            
+            <form method="GET" action="../ClienteControl" enctype="multipart/form-data">
+                  
+               <legend class="text-center header" style="color: black;">Registrar Cliente</legend>
 
-               <legend class="text-center header" style="color: black;">BIENVENIDO</legend>
- 
-       
+                <div class="form-group">
+                    <input _ngcontent-c0="" class="form-control" name="nit" placeholder="Nit" type="text" required>
+                </div>
+
+                <div class="form-group">
+                    <input _ngcontent-c0="" class="form-control" name="nombre" placeholder="Nombre" type="text" required>
+                </div>
+
+                <div class="form-group">
+                    <input _ngcontent-c0="" class="form-control" name="direccion" placeholder="Direccion" type="text" required>
+                </div>
+                <div class="form-group">
+                  <div class="col-md-12 text-center">
+                    <button  type="submit" name="accion" value="registro"  style="width: 40%;" class="btn btn-primary" >Registrar</button>
+                  </div>
+                </div>
+                
+                </form>
+              
+            </div>
+          </div><br>
       </div>
-      </div>
-      <!-- End of Main Content -->
-
       <!-- Footer -->
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
@@ -227,7 +240,5 @@
 
   <!-- Custom scripts for all pages-->
   <script src="../carpetaplantilla/js/sb-admin-2.min.js"></script>
-
 </body>
-
 </html>
