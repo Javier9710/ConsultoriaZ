@@ -219,7 +219,7 @@
             <td style="text-align: center"><c:out value="${p.telefono}"/></td>
             <td>
           <form action="../EmpleadoControl" method="get">
-            <input type="hidden" name="id" value="${p.id}">
+            <input type="hidden" name="id" value="${p.cedula}">
             <div class="form-group row">
               <div class="col-sm-12">
                 <button type="submit" name="accion" value="editar"

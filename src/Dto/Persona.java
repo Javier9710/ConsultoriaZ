@@ -16,8 +16,6 @@ public class Persona implements Serializable {
 	 */
 	private static final long serialVersionUID = 3332029299797149599L;
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
 	private String cedula;
 	private String nombre;
 	private int edad;
@@ -28,13 +26,7 @@ public class Persona implements Serializable {
 
 	}
 
-	public int getId() {
-		return id;
-	}
 
-	public void setId(int id) {
-		this.id = id;
-	}
 
 	public String getCedula() {
 		return cedula;

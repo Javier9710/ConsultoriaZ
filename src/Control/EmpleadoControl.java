@@ -18,13 +18,11 @@ import Dto.Persona;
  */
 @WebServlet("/EmpleadoControl")
 public class EmpleadoControl extends HttpServlet {
-	Persona p = new Persona();
 	Persona p1 = new Persona();
 	PersonaDao pD = new PersonaDao();
 	PersonaDao pD1 = new PersonaDao();
 	Empleado e = new Empleado();
-	EmpleadoDao eD= new EmpleadoDao();
-	Cargo c =new Cargo();
+	EmpleadoDao eD1= new EmpleadoDao();
 	
 	private static final long serialVersionUID = 1L;
 
@@ -46,6 +44,13 @@ public class EmpleadoControl extends HttpServlet {
 		String accion = request.getParameter("accion");
 		switch (accion) {
 		case "registro":
+			//creo instancias
+			Persona p = new Persona();
+			Cargo c =new Cargo();
+			PersonaDao pD2 = new PersonaDao();
+			Empleado e = new Empleado();
+			EmpleadoDao eD= new EmpleadoDao();
+			
 			//atributos Persona
 			String cedula = request.getParameter("cedula");
 			String nombre = request.getParameter("nombre");
@@ -55,18 +60,17 @@ public class EmpleadoControl extends HttpServlet {
 			//atributos Empleado
 			String pass = request.getParameter("pass");
 			int cargo = Integer.parseInt(request.getParameter("cargo"));
-			//set
+			
 			c.setId(cargo);
 			p.setCedula(cedula);
 			p.setNombre(nombre);
 			p.setEdad(edad);
 			p.setTelefono(telefono);
 			p.setFoto(foto);
-			pD.registrar(p);
+			pD2.registrar(p);
 			e.setPass(pass);
 			e.setCargo(c);
-			e.setPersona(p1);
-			p1.setId(p.getId());
+			e.setPersona(p);
 			eD.registrar(e);
 			String site = new String("http://localhost:8080/ConsultoriaZ/WebApp/regEmpleado.jsp");
 			response.setStatus(response.SC_MOVED_TEMPORARILY);
@@ -84,9 +88,8 @@ public class EmpleadoControl extends HttpServlet {
 
         case "eliminar":
         	
-			int id = Integer.parseInt(request.getParameter("id"));
-			int y = eD.devuelveE(id);
-			eD.eliminar(y);
+			String id = request.getParameter("id");
+			eD1.eliminar(id);
 			//int x = pD1.buscar(id);
 			pD1.eliminar(id);
 			String site2 = new String("http://localhost:8080/ConsultoriaZ/WebApp/listarEmpleado.jsp");
