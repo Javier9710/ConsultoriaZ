@@ -1,11 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ page import="java.util.List"%>
-<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html>
-<html lang="en">
-
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <head>
 
   <meta charset="utf-8">
@@ -14,22 +12,19 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Listar Empleado</title>
+  <title>Registar Servicio</title>
 
   <!-- Custom fonts for this template-->
   <link href="../carpetaplantilla/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-  <link rel="shortcut icon" href="../carpetaplantilla/img/icon.png">
 
   <!-- Custom styles for this template-->
   <link href="../carpetaplantilla/css/sb-admin-2.min.css" rel="stylesheet">
+  <link rel="shortcut icon" href="../carpetaplantilla/img/icon.png">
 
 </head>
-
 <body id="page-top">
-
-  <!-- Page Wrapper -->
-  <div id="wrapper">
+<div id="wrapper">
 
     <!-- Sidebar -->
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
@@ -61,6 +56,7 @@
           </div>
         </div>
       </li>
+      
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCliente" aria-expanded="true" aria-controls="collapseCliente">
@@ -74,8 +70,7 @@
           </div>
         </div>
       </li>
-
-      <!-- Nav Item - Utilities Collapse Menu -->
+       <!-- Nav Item - Utilities Collapse Menu -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
           <i class="fas fa-fw fa-file"></i>
@@ -89,10 +84,7 @@
           </div>
         </div>
       </li>
-     
-
-     
-
+      
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
 
@@ -104,7 +96,7 @@
     </ul>
 
     <!-- End of Sidebar -->
-
+    
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
 
@@ -153,8 +145,8 @@
                 </form>
               </div>
             </li>
-
-            <!-- Nav Item - Alerts -->
+            
+          <!-- Nav Item - Alerts -->
             
 
             <div class="topbar-divider d-none d-sm-block"></div>
@@ -179,70 +171,62 @@
 
         </nav>
     </div>
+    <div class="container-fluid" style="background-image: url(https://www.publicdomainpictures.net/pictures/280000/velka/gradient-yellow-to-blue-background.jpg);"><br>
 
+          <!-- Page Heading -->
 
-       
-       <div class="container-fluid" style="background-image: url(https://www.publicdomainpictures.net/pictures/280000/velka/gradient-yellow-to-blue-background.jpg); height: 100%;" >
-        <div class="row justify-content-center align-self-center" style="background-color: white;"><br>
-        
-	
+          <div class="row justify-content-center align-self-center" >
 
-          <legend class="text-center header" style="color: black;">Listado de Empleados</legend>
-          
-          <jsp:useBean id="pD" class="Dao.PersonaDao" scope="request"></jsp:useBean>
-          
-          <table class="table">
-      <thead>
-        <tr>
-          <th style="text-align: center" scope="col">Foto</th>
-          <th style="text-align: center" scope="col">Cedula</th>
-          <th style="text-align: center" scope="col">Nombre</th>
-          <th style="text-align: center" scope="col">Edad</th>
-          <th style="text-align: center" scope="col">Telefono</th>
-          <th style="text-align: center" scope="col">Acciones</th>
-        </tr>
-      </thead>
+            <div class="col col-sm-9 col-md-9 col-lg-6 col-xl-6 h-100" style="background-color: #a7c0cd;" style="border-radius: 20px;">
+            
+            <form method="GET" action="../ServicioControl" enctype="multipart/form-data">
+                  
+               <legend class="text-center header" style="color: black;">Registrar Servicio</legend>
 
-      <tbody>
+                <div class="form-group">
+                    <input _ngcontent-c0="" class="form-control" name="nombre" placeholder="Nombre" type="text" required>
+                </div>
 
+                <div class="form-group">
+                    <input _ngcontent-c0="" class="form-control" name="precio" placeholder="Precio" type="text" required>
+                </div>
+                
+                <div class="form-group">
+                <jsp:useBean id="eD" class="Dao.EmpleadoDao" scope="request"></jsp:useBean>
+	                <select name="empleado">
+						<option>Empleado</option>
+						<c:forEach var="p" items="${eD.listar()}">
+						
+						<option value="<c:out value="${p.getCedula()}"/>"><c:out value="${p.getNombre()}"/></option>
+						</c:forEach>
+					</select>
+                </div>
+                
+                <div class="form-group">
+                <jsp:useBean id="cD" class="Dao.ClienteDao" scope="request"></jsp:useBean>
+	                <select name="cliente">
+						<option>Cliente</option>
+						<c:forEach var="p" items="${cD.listar()}">
+						
+						<option value="<c:out value="${c.getNit()}"/>"><c:out value="${c.getNombre()}"/></option>
+						</c:forEach>
+					</select>
+                </div>
 
-
-        <c:forEach var="p" items="${pD.listar1()}">
-
-          <tr>
-            <td style="text-align: center"><img src="<c:out value="${p.foto}"/>"
-              with="120px" height="120px"></td> 
-            <td style="text-align: center"><c:out value="${p.cedula}"/></td>
-            <td style="text-align: center"><c:out value="${p.nombre}"/></td>
-            <td style="text-align: center"><c:out value="${p.edad}"/></td>
-            <td style="text-align: center"><c:out value="${p.telefono}"/></td>
-            <td>
-          <form action="../EmpleadoControl" method="get">
-            <input type="hidden" name="id" value="${p.cedula}">
-            <div class="form-group row">
-              <div class="col-sm-12">
-                <button type="submit" name="accion" value="editar"
-                  class="btn btn-primary">Editar</button>
-                <button type="submit" name="accion" value="eliminar"
-                  class="btn btn-primary">Eliminar</button>
-              </div>
+                <div class="form-group">
+                    <textarea _ngcontent-c0="" class="form-control" name="descripcion" placeholder="Descripcion" type="text" required></textarea>
+                </div>
+                <div class="form-group">
+                  <div class="col-md-12 text-center">
+                    <button  type="submit" name="accion" value="registro"  style="width: 40%;" class="btn btn-primary" >Registrar</button>
+                  </div>
+                </div>
+                
+                </form>
+              
             </div>
-          </form>
-        </td>
-          </tr>
-
-        </c:forEach>
-
-
-
-      </tbody>
-
-    </table>
-
-       </div>
+          </div><br>
       </div>
-      <!-- End of Main Content -->
-
       <!-- Footer -->
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
@@ -276,7 +260,5 @@
 
   <!-- Custom scripts for all pages-->
   <script src="../carpetaplantilla/js/sb-admin-2.min.js"></script>
-
 </body>
-
 </html>

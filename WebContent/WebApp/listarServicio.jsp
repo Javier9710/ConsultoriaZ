@@ -1,11 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ page import="java.util.List"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html>
-<html lang="en">
-
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <head>
 
   <meta charset="utf-8">
@@ -14,7 +12,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Listar Empleado</title>
+  <title>Listar Servicios</title>
 
   <!-- Custom fonts for this template-->
   <link href="../carpetaplantilla/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -25,10 +23,8 @@
   <link href="../carpetaplantilla/css/sb-admin-2.min.css" rel="stylesheet">
 
 </head>
-
 <body id="page-top">
-
-  <!-- Page Wrapper -->
+<!-- Page Wrapper -->
   <div id="wrapper">
 
     <!-- Sidebar -->
@@ -89,9 +85,6 @@
           </div>
         </div>
       </li>
-     
-
-     
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
@@ -102,9 +95,7 @@
       </div>
 
     </ul>
-
-    <!-- End of Sidebar -->
-
+    
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
 
@@ -179,26 +170,25 @@
 
         </nav>
     </div>
-
-
-       
-       <div class="container-fluid" style="background-image: url(https://www.publicdomainpictures.net/pictures/280000/velka/gradient-yellow-to-blue-background.jpg); height: 100%;" >
+    
+    <div class="container-fluid" style="background-image: url(https://www.publicdomainpictures.net/pictures/280000/velka/gradient-yellow-to-blue-background.jpg); height: 100%;" >
         <div class="row justify-content-center align-self-center" style="background-color: white;"><br>
         
 	
 
           <legend class="text-center header" style="color: black;">Listado de Empleados</legend>
           
-          <jsp:useBean id="pD" class="Dao.PersonaDao" scope="request"></jsp:useBean>
+          <jsp:useBean id="sD" class="Dao.ServicioDao" scope="request"></jsp:useBean>
           
           <table class="table">
       <thead>
         <tr>
-          <th style="text-align: center" scope="col">Foto</th>
-          <th style="text-align: center" scope="col">Cedula</th>
+          
           <th style="text-align: center" scope="col">Nombre</th>
-          <th style="text-align: center" scope="col">Edad</th>
-          <th style="text-align: center" scope="col">Telefono</th>
+          <th style="text-align: center" scope="col">Precio</th>
+          <th style="text-align: center" scope="col">Empleado</th>
+          <th style="text-align: center" scope="col">Cliente</th>
+          <th style="text-align: center" scope="col">Descripcion</th>
           <th style="text-align: center" scope="col">Acciones</th>
         </tr>
       </thead>
@@ -207,18 +197,19 @@
 
 
 
-        <c:forEach var="p" items="${pD.listar1()}">
+        <c:forEach var="s" items="${sD.listar1()}">
 
           <tr>
-            <td style="text-align: center"><img src="<c:out value="${p.foto}"/>"
-              with="120px" height="120px"></td> 
-            <td style="text-align: center"><c:out value="${p.cedula}"/></td>
-            <td style="text-align: center"><c:out value="${p.nombre}"/></td>
-            <td style="text-align: center"><c:out value="${p.edad}"/></td>
-            <td style="text-align: center"><c:out value="${p.telefono}"/></td>
+            
+            <td style="text-align: center"><c:out value="${s.id}"/></td>
+            <td style="text-align: center"><c:out value="${s.nombre}"/></td>
+            <td style="text-align: center"><c:out value="${s.precio}"/></td>
+            <td style="text-align: center" scope="col"><c:out value="${s.empleado.getEmpleado()}" /></td>
+            <td style="text-align: center" scope="col"><c:out value="${s.cliente.getCliente()}" /></td>
+            <td style="text-align: center"><c:out value="${s.descripcion}"/></td>
             <td>
-          <form action="../EmpleadoControl" method="get">
-            <input type="hidden" name="id" value="${p.cedula}">
+          <form action="..ServicioControl" method="get">
+            <input type="hidden" name="id" value="${s.id}">
             <div class="form-group row">
               <div class="col-sm-12">
                 <button type="submit" name="accion" value="editar"
@@ -233,8 +224,6 @@
 
         </c:forEach>
 
-
-
       </tbody>
 
     </table>
@@ -242,8 +231,7 @@
        </div>
       </div>
       <!-- End of Main Content -->
-
-      <!-- Footer -->
+     <!-- Footer -->
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
@@ -276,7 +264,7 @@
 
   <!-- Custom scripts for all pages-->
   <script src="../carpetaplantilla/js/sb-admin-2.min.js"></script>
-
+     
+      
 </body>
-
 </html>
