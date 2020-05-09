@@ -6,8 +6,8 @@
 		<class>Dto.Empleado</class>
 		<class>Dto.Cliente</class>
 		<class>Dto.Servicio</class>
-		<class>Dto.Asesoria_ti</class>
 		<class>Dto.Admin</class>
+		<class>Dto.AsesoriaTi</class>
 		<properties>
 	
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/consultoria"/>

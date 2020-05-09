@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "asesoria_ti")
-public class Asesoria_ti implements Serializable {
+public class AsesoriaTi implements Serializable {
 	
 	/**
 	 * 
@@ -22,7 +22,7 @@ public class Asesoria_ti implements Serializable {
 	private Servicio servicio;
 	private String descripcion;
 	
-	public Asesoria_ti() {
+	public AsesoriaTi() {
 		
 		
 	}
