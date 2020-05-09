@@ -90,7 +90,6 @@ public class EmpleadoControl extends HttpServlet {
         	
 			String id = request.getParameter("id");
 			eD1.eliminar(id);
-			//int x = pD1.buscar(id);
 			pD1.eliminar(id);
 			String site2 = new String("http://localhost:8080/ConsultoriaZ/WebApp/listarEmpleado.jsp");
 			response.setStatus(response.SC_MOVED_TEMPORARILY);

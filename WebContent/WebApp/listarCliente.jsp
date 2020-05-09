@@ -177,7 +177,7 @@
 
           <legend class="text-center header" style="color: black;">Listado de Clientes</legend>
           
-          <jsp:useBean id="pD" class="Dao.PersonaDao" scope="request"></jsp:useBean>
+          <jsp:useBean id="cD1" class="Dao.ClienteDao" scope="request"></jsp:useBean>
           
           <table class="table">
       <thead>
@@ -185,8 +185,9 @@
           
           <th style="text-align: center" scope="col">Nit</th>
           <th style="text-align: center" scope="col">Nombre</th>
-          <th style="text-align: center" scope="col">Fecha</th>
+          <th style="text-align: center" scope="col">Registro</th>
           <th style="text-align: center" scope="col">Direccion</th>
+          <th style="text-align: center" scope="col">Contacto</th>
           <th style="text-align: center" scope="col">Acciones</th>
         </tr>
       </thead>
@@ -195,17 +196,18 @@
 
 
 
-        <c:forEach var="p" items="${pD.listar1()}">
+        <c:forEach var="c" items="${cD1.listar()}">
 
           <tr>
             
-            <td style="text-align: center"><c:out value="${p.nit}"/></td>
-            <td style="text-align: center"><c:out value="${p.nombre}"/></td>
-            <td style="text-align: center"><c:out value="${p.fecha}"/></td>
-            <td style="text-align: center"><c:out value="${p.direccion}"/></td>
+            <td style="text-align: center"><c:out value="${c.nit}"/></td>
+            <td style="text-align: center"><c:out value="${c.nombre}"/></td>
+            <td style="text-align: center"><c:out value="${c.registro}"/></td>
+            <td style="text-align: center"><c:out value="${c.direccion}"/></td>
+            <td style="text-align: center"><c:out value="${c.contacto}"/></td>
             <td>
           <form action="../ClienteControl" method="get">
-            <input type="hidden" name="id" value="${p.id}">
+            <input type="hidden" name="id" value="${c.nit}">
             <div class="form-group row">
               <div class="col-sm-12">
                 <button type="submit" name="accion" value="editar"

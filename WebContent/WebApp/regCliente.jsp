@@ -181,6 +181,7 @@
 
             <div class="col col-sm-9 col-md-9 col-lg-6 col-xl-6 h-100" style="background-color: #a7c0cd;" style="border-radius: 20px;">
             
+            
             <form method="GET" action="../ClienteControl" enctype="multipart/form-data">
                   
                <legend class="text-center header" style="color: black;">Registrar Cliente</legend>
@@ -196,6 +197,11 @@
                 <div class="form-group">
                     <input _ngcontent-c0="" class="form-control" name="direccion" placeholder="Direccion" type="text" required>
                 </div>
+                
+                <div class="form-group">
+                    <input _ngcontent-c0="" class="form-control" name="contacto" placeholder="Contacto" type="text" required>
+                </div>
+                
                 <div class="form-group">
                   <div class="col-md-12 text-center">
                     <button  type="submit" name="accion" value="registro"  style="width: 40%;" class="btn btn-primary" >Registrar</button>
