@@ -4,8 +4,11 @@ import java.io.Serializable;
 import java.sql.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -22,16 +25,18 @@ public class Servicio implements Serializable {
 	 */
 	private static final long serialVersionUID = -1626580102498151753L;
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	private String nombre;
 	@ManyToOne
-	@JoinColumn(name="empleado")
+	@JoinColumn(name = "empleado", referencedColumnName = "persona")
 	private Empleado empleado;
 	@ManyToOne
-	@JoinColumn(name="cliente")
+	@JoinColumn(name = "cliente")
 	private Cliente cliente;
 	private Date fecha;
 	private float precio;
+	
 	
 	
 	public Servicio() {

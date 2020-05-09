@@ -5,7 +5,11 @@ import java.sql.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+
 
 @Entity
 @Table(name = "persona")
@@ -21,6 +25,8 @@ public class Persona implements Serializable {
 	private String telefono;
 	private String foto;
 	private Date ingreso;
+	
+
 
 	public Persona() {
 

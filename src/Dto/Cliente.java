@@ -2,10 +2,12 @@ package Dto;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
 
 @Entity
 @Table(name = "cliente")
@@ -21,6 +23,7 @@ public class Cliente implements Serializable {
 	private String direccion;
 	private Date registro;
 	private String contacto;
+
 	
 	
 	public Cliente() {
