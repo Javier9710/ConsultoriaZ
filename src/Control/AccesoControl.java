@@ -35,14 +35,7 @@ public class AccesoControl extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		HttpSession session = request.getSession();
 		String accion = request.getParameter("accion");
 		
 		switch (accion) {
@@ -60,12 +53,27 @@ public class AccesoControl extends HttpServlet {
 			
 			
 			break;
+			
+		case "cerrar":
+			session.invalidate();
+			String site = new String("http://localhost:8080/ConsultoriaZ/index.jsp");
+			response.setStatus(response.SC_MOVED_TEMPORARILY);
+			response.setHeader("Location", site);
+			break;
 
 		default:
 			break;
 		}
 
 		
+	}
+	
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 	}
 
 }
