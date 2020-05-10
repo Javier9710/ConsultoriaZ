@@ -70,7 +70,7 @@
         </div>
       </li>
 
-      <!-- Nav Item - Utilities Collapse Menu -->
+       <!-- Nav Item - Utilities Collapse Menu -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
           <i class="fas fa-fw fa-file"></i>
@@ -78,9 +78,9 @@
         </a>
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="regSercivio.html">Registrar Servicio</a>
-            <a class="collapse-item" href="listarServicio.html">Listar Servicios</a>
-            <a class="collapse-item" href="buscarServicio.html">Buscar Servicio</a>
+            <a class="collapse-item" href="regSercivio.jsp">Registrar Servicio</a>
+            <a class="collapse-item" href="../ServicioControl?accion=listar">Listar Servicios</a>
+            
           </div>
         </div>
       </li>
@@ -211,9 +211,9 @@
             <div class="form-group row">
               <div class="col-sm-12">
                 <button type="submit" name="accion" value="editar"
-                  class="btn btn-primary btn-lg">Editar</button>
+                  class="btn btn-primary">Editar</button>
                 <button type="submit" name="accion" value="eliminar"
-                  class="btn btn-primary btn-lg">Eliminar</button>
+                  class="btn btn-primary">Eliminar</button>
               </div>
             </div>
           </form>
