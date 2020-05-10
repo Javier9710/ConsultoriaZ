@@ -18,11 +18,9 @@ import Dto.Persona;
  */
 @WebServlet("/EmpleadoControl")
 public class EmpleadoControl extends HttpServlet {
-	Persona p1 = new Persona();
-	PersonaDao pD = new PersonaDao();
-	PersonaDao pD1 = new PersonaDao();
-	Empleado e = new Empleado();
-	EmpleadoDao eD1= new EmpleadoDao();
+
+
+
 	
 	private static final long serialVersionUID = 1L;
 
@@ -87,10 +85,10 @@ public class EmpleadoControl extends HttpServlet {
 			break;
 
         case "eliminar":
-        	
+        	EmpleadoDao eD1= new EmpleadoDao();
+        	PersonaDao pD1 = new PersonaDao();
 			String id = request.getParameter("id");
 			eD1.eliminar(id);
-			//int x = pD1.buscar(id);
 			pD1.eliminar(id);
 			String site2 = new String("http://localhost:8080/ConsultoriaZ/WebApp/listarEmpleado.jsp");
 			response.setStatus(response.SC_MOVED_TEMPORARILY);

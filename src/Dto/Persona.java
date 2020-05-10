@@ -1,12 +1,15 @@
 package Dto;
 
 import java.io.Serializable;
+import java.sql.Date;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+
 
 @Entity
 @Table(name = "persona")
@@ -21,6 +24,9 @@ public class Persona implements Serializable {
 	private int edad;
 	private String telefono;
 	private String foto;
+	private Date ingreso;
+	
+
 
 	public Persona() {
 
@@ -67,5 +73,19 @@ public class Persona implements Serializable {
 	public void setFoto(String foto) {
 		this.foto = foto;
 	}
+
+
+
+	public Date getIngreso() {
+		return ingreso;
+	}
+
+
+
+	public void setIngreso(Date ingreso) {
+		this.ingreso = ingreso;
+	}
+	
+	
 
 }

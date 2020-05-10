@@ -1,15 +1,15 @@
 package Dto;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
 
 @Entity
 @Table(name = "empleado")
@@ -21,13 +21,13 @@ public class Empleado implements Serializable  {
 	private static final long serialVersionUID = 8374843910073210378L;
 	@Id
 	@OneToOne
-	@JoinColumn(name="persona")
+	@JoinColumn(name="persona" )
 	private Persona persona;
 	private String pass;
 	@ManyToOne
 	@JoinColumn(name="cargo")
 	private Cargo cargo;
-
+	
 
 	public Empleado() {
 
