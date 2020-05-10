@@ -20,7 +20,7 @@ public class ServicioDao {
 
 	
 	public List<Servicio> listar1(){
-		return (List<Servicio>) em.createQuery("SELECT p from Persona p, Empleado e Where p.cedula=e.persona").getResultList();	
+		return (List<Servicio>) em.createQuery("SELECT s from Servicio s").getResultList();	
 		
 	}
 
@@ -52,7 +52,7 @@ public class ServicioDao {
 
 	}
 
-	public void eliminar(String id) {
+	public void eliminar(int id) {
 		try {
 
 			Servicio u = em.find(Servicio.class, id);

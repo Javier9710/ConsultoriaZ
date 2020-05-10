@@ -52,7 +52,7 @@ public class AsesoriaDao {
 		 
 	 }
 	 
-	 public void eliminar (String id){
+	 public void eliminar (int id){
 		 try {
 
 			 AsesoriaTi u = em.find(AsesoriaTi.class, id);

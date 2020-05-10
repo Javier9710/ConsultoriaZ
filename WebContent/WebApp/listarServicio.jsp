@@ -79,7 +79,7 @@
         </a>
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="regSercivio.jsp">Registrar Servicio</a>
+            <a class="collapse-item" href="regServicio.jsp">Registrar Servicio</a>
             <a class="collapse-item" href="../ServicioControl?accion=listar">Listar Servicios</a>
             
           </div>
@@ -176,9 +176,9 @@
         
 	
 
-          <legend class="text-center header" style="color: black;">Listado de Empleados</legend>
+          <legend class="text-center header" style="color: black;">Listado de Servicios</legend>
           
-          <jsp:useBean id="sD" class="Dao.ServicioDao" scope="request"></jsp:useBean>
+          <jsp:useBean id="AD" class="Dao.ServicioDao" scope="request"></jsp:useBean>
           
           <table class="table">
       <thead>
@@ -188,7 +188,7 @@
           <th style="text-align: center" scope="col">Precio</th>
           <th style="text-align: center" scope="col">Empleado</th>
           <th style="text-align: center" scope="col">Cliente</th>
-          <th style="text-align: center" scope="col">Descripcion</th>
+      
           <th style="text-align: center" scope="col">Acciones</th>
         </tr>
       </thead>
@@ -197,18 +197,18 @@
 
 
 
-        <c:forEach var="s" items="${sD.listar1()}">
+        <c:forEach var="s" items="${AD.listar1()}">
 
           <tr>
             
-            <td style="text-align: center"><c:out value="${s.id}"/></td>
+          
             <td style="text-align: center"><c:out value="${s.nombre}"/></td>
             <td style="text-align: center"><c:out value="${s.precio}"/></td>
-            <td style="text-align: center" scope="col"><c:out value="${s.empleado.getEmpleado()}" /></td>
-            <td style="text-align: center" scope="col"><c:out value="${s.cliente.getCliente()}" /></td>
-            <td style="text-align: center"><c:out value="${s.descripcion}"/></td>
+            <td style="text-align: center" scope="col"><c:out value="${s.empleado.getPersona().getCedula()}" /></td>
+            <td style="text-align: center" scope="col"><c:out value="${s.cliente.getNit()}" /></td>
+
             <td>
-          <form action="..ServicioControl" method="get">
+          <form action="../ServicioControl" method="get">
             <input type="hidden" name="id" value="${s.id}">
             <div class="form-group row">
               <div class="col-sm-12">
