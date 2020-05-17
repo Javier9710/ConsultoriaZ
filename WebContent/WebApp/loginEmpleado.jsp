@@ -20,9 +20,9 @@
   <div class="row justify-content-center align-self-center"  >
     <div class="col col-sm-8 col-md-8 col-lg-4 col-xl-4 h-100" id="level1">
       <h2 id="nom">Consultorias Zambrano</h2>
-      <h5 id="nom2">Sector de Ingenieria</h5>
+      <h5 id="nom2">Sector de Ingenieria - <b>Empleado</b></h5>
       <hr>
-        <form id="formLogin" method="post" action="AccesoControl">
+        <form id="formLogin" method="post" action="EmpleadoControl">
  
           <div class="form-group row"><br>
         
@@ -40,9 +40,7 @@
   <div class="col-sm-12">
       <button type="submit" name="accion" value="ingreso" class="btn btn-dark" >Iniciar Sesión</button><br><br>
     </div>
-    <div class="form-group">
-      <a href="../WebApp/loginEmpleado.jsp" style="color: blue; text-decoration: none; " ><u>O inicie sesión como Empleado</u></a>
-    </div>
+    
 
   </form>
 </div>
