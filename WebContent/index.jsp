@@ -41,7 +41,7 @@
       <button type="submit" name="accion" value="ingreso" class="btn btn-dark" >Iniciar Sesión</button><br><br>
     </div>
     <div class="form-group">
-      <a href="../WebApp/loginEmpleado.jsp" style="color: blue; text-decoration: none; " ><u>O inicie sesión como Empleado</u></a>
+      <a href="WebApp/loginEmpleado.jsp" style="color: blue; text-decoration: none; " ><u>O inicie sesión como Empleado</u></a>
     </div>
 
   </form>
