@@ -68,19 +68,19 @@ public class ServicioControl extends HttpServlet {
 			break;
 
 		case "eliminar":
-			String id = request.getParameter("id");
+			int id = Integer.parseInt(request.getParameter("id"));
 			ServicioDao sD1  = new ServicioDao();
 			AsesoriaDao aT = new AsesoriaDao();
-			sD1.eliminar(id);
 			aT.eliminar(id);
-			String site1 = new String("http://localhost:8080/ConsultoriaZ/WebApp/listarEmpleado.jsp");
+			sD1.eliminar(id);
+			String site1 = new String("http://localhost:8080/ConsultoriaZ/WebApp/listarServicio.jsp");
 			response.setStatus(response.SC_MOVED_TEMPORARILY);
 			response.setHeader("Location", site1);			
 			break;
 			
 			
 		case "listar":
-			AsesoriaDao AD = new AsesoriaDao();
+			ServicioDao AD = new ServicioDao();
 			String site2 = new String("http://localhost:8080/ConsultoriaZ/WebApp/listarServicio.jsp");
 			response.setStatus(response.SC_MOVED_TEMPORARILY);
 			response.setHeader("Location", site2);

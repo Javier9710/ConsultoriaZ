@@ -30,7 +30,7 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="inicio.jsp">
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-file"></i>
         </div>
@@ -78,7 +78,7 @@
         </a>
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="regSercivio.jsp">Registrar Servicio</a>
+            <a class="collapse-item" href="regServicio.jsp">Registrar Servicio</a>
             <a class="collapse-item" href="../ServicioControl?accion=listar">Listar Servicios</a>
             
           </div>
@@ -160,7 +160,7 @@
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                 
-                <a class="dropdown-item" href="#" >
+                <a class="dropdown-item" href="../AccesoControl?accion=cerrar" >
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                   Cerrar Sesión
                 </a>
@@ -192,23 +192,23 @@
                 </div>
                 
                 <div class="form-group">
-                <jsp:useBean id="eD" class="Dao.EmpleadoDao" scope="request"></jsp:useBean>
+                <jsp:useBean id="PS" class="Dao.PersonaDao" scope="request"></jsp:useBean>
 	                <select name="empleado">
 						<option>Empleado</option>
-						<c:forEach var="p" items="${eD.listar()}">
+						<c:forEach var="p" items="${PS.listar1()}">
 						
-						<option value="<c:out value="${p.getCedula()}"/>"><c:out value="${p.getNombre()}"/></option>
+						<option value="<c:out value="${p.getCedula()}"/>"><c:out value="${p.getCedula()}"/></option>
 						</c:forEach>
 					</select>
                 </div>
                 
                 <div class="form-group">
-                <jsp:useBean id="cD" class="Dao.ClienteDao" scope="request"></jsp:useBean>
+                <jsp:useBean id="CS" class="Dao.ClienteDao" scope="request"></jsp:useBean>
 	                <select name="cliente">
 						<option>Cliente</option>
-						<c:forEach var="p" items="${cD.listar()}">
+						<c:forEach var="c" items="${CS.listar()}">
 						
-						<option value="<c:out value="${c.getNit()}"/>"><c:out value="${c.getNombre()}"/></option>
+						<option value="<c:out value="${c.getNit()}"/>"><c:out value="${c.getNit()}"/></option>
 						</c:forEach>
 					</select>
                 </div>
