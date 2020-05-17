@@ -11,7 +11,7 @@
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="carpetaplantilla/estilo/css.css">
+  <link rel="stylesheet" type="text/css" href="../carpetaplantilla/estilo/css.css">
   <link rel="shortcut icon" href="../carpetaplantilla/img/icon.png">
 </head>
 <body style="background-image: url(https://jrs.digital/wp-content/uploads/2019/11/office-3295556_1920.jpg);background-size: cover; background-repeat: no-repeat; background-attachment: fixed;" >
