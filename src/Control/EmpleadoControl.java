@@ -89,24 +89,23 @@ public class EmpleadoControl extends HttpServlet {
 			eD1.eliminar(id);
 			pD1.eliminar(id);
 			response.sendRedirect("WebApp/listarEmpleado.jsp");
+			break;
 			
 		case "ingreso":
 			Persona p1 = new Persona();
-			PersonaDao pD3 = new PersonaDao();
+			EmpleadoDao pD3 = new EmpleadoDao();
 			String cedula1 = request.getParameter("cedula");
 			String pass1 = request.getParameter("pass");
 			p1 = pD3.validar(cedula1, pass1);
 			System.out.println("1");
 			if(p1!=null) {
-System.out.println("2");
+            System.out.println("2");
 				HttpSession sesion = request.getSession();
 				sesion.setAttribute("persona", p1);
 				response.sendRedirect("WebApp/inicioEmpleado.jsp");
 			}
 			break;
 
-		default:
-			break;
 		}
 		
 	
