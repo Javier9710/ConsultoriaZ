@@ -2,6 +2,7 @@
     pageEncoding="ISO-8859-1"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -116,6 +117,9 @@
         <div class="row justify-content-center align-self-center" style="background-color: white;"><br>
 
           <legend class="text-center header" style="color: black;">Listado de Servicios</legend>
+          
+          <jsp:useBean id="AD" class="Dao.ServicioDao" scope="request"></jsp:useBean>
+          
           <table class="table">
       <thead>
         <tr>
@@ -133,7 +137,7 @@
 
 
 
-        <c:forEach var="d" items="${lista}">
+        <c:forEach var="d" items="${AD.listar1()}">
 
           <tr>
             
@@ -141,11 +145,11 @@
             <td style="text-align: center">${d.getNombre()}</td>
             <td style="text-align: center">${d.getFecha()}</td>
             <td style="text-align: center">${d.getPrecio()}</td>
-            <td style="text-align: center">${d.getCliente()}</td>
+            <td style="text-align: center">${d.getCliente().getNombre()}</td>
             
             <td>
           <form action="MensajeControl" method="post">
-            <input type="hidden" name="id" value="${m.getId()}">
+            <input type="hidden" name="id" value="${d.getId()}">
             <div class="form-group row">
               <div class="col-sm-12">
                 <button type="button" onclick="window.location.href='atenderServicio.jsp'" 

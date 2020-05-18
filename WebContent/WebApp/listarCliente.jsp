@@ -208,7 +208,7 @@
             <td>
           <form action="../ClienteControl" method="get">
             <input type="hidden" name="id" value="${c.nit}">
-            <div class="form-group row">
+            <div style="text-align: center" class="form-group row">
               <div class="col-sm-12">
                 <button type="submit" name="accion" value="editar"
                   class="btn btn-primary">Editar</button>

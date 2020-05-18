@@ -197,7 +197,7 @@
 						<option>Empleado</option>
 						<c:forEach var="p" items="${PS.listar1()}">
 						
-						<option value="<c:out value="${p.getCedula()}"/>"><c:out value="${p.getCedula()}"/></option>
+						<option value="<c:out value="${p.getCedula()}"/>"><c:out value="Cedula: ${p.getCedula()} Nombre: ${p.getNombre()}"/></option>
 						</c:forEach>
 					</select>
                 </div>
@@ -208,20 +208,20 @@
 						<option>Cliente</option>
 						<c:forEach var="c" items="${CS.listar()}">
 						
-						<option value="<c:out value="${c.getNit()}"/>"><c:out value="${c.getNit()}"/></option>
+						<option value="<c:out value="${c.getNit()}"/>"><c:out value="Nit: ${c.getNit()} Nombre: ${c.getNombre()}"/></option>
 						</c:forEach>
 					</select>
                 </div>
                 <div class="form-group row">
                     <label  class="col-sm-2 col-form-label" style="color: black;">Fecha Inicio:</label>
                       <div class="col-sm-10">
-                           <input type="date" class="form-control" name="" placeholder="Fecha" required="Llena este campo">
+                           <input type="date" class="form-control" name="fechai" placeholder="Fecha" required="Llena este campo">
                      </div>
                 </div>
                 <div class="form-group row">
                     <label  class="col-sm-2 col-form-label" style="color: black;">Fecha Final:</label>
                       <div class="col-sm-10">
-                           <input type="date" class="form-control" name="" placeholder="Fecha" required="Llena este campo">
+                           <input type="date" class="form-control" name="fechaf" placeholder="Fecha" required="Llena este campo">
                      </div>
                 </div>
 

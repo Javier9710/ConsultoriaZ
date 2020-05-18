@@ -1,6 +1,11 @@
 package Control;
 
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -50,6 +55,12 @@ public class ServicioControl extends HttpServlet {
 			String empleado = request.getParameter("empleado");
 			String cliente = request.getParameter("cliente");
 			String descripcion = request.getParameter("descripcion");
+			//cast a fecha
+			
+			String fechai = request.getParameter("fechai");
+			
+			String fechaf = request.getParameter("fechaf");
+
 			p.setCedula(empleado);
 			c.setNit(cliente);
 			e.setPersona(p);
@@ -57,6 +68,8 @@ public class ServicioControl extends HttpServlet {
 			s.setPrecio(precio);
 			s.setCliente(c);
 			s.setEmpleado(e);
+			s.setFecha(fechai);
+			s.setFechaFin(fechaf);
 			sD.registrar(s);
 			a.setServicio(s);
 			a.setDescripcion(descripcion);

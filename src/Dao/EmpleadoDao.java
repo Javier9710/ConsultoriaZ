@@ -21,17 +21,18 @@ public class EmpleadoDao {
 	}
 	
 	
-	public Persona validar(String cedula, String pass) {
+	public Persona validar(String cedula1, String pass1) {
 		Persona p = new Persona();
-		 Query nativeQuery = em.createNativeQuery("SELECT nombre,edad FROM Persona p, Empleado a "
+		 Query nativeQuery = em.createNativeQuery("SELECT cedula,edad FROM Persona p, Empleado a "
 		 		                                 + "WHERE p.cedula =? "
 		 		                                 + "and p.cedula=a.persona "
 		 		                                 + "and a.pass=?");
-	        nativeQuery.setParameter(1, cedula);
-	        nativeQuery.setParameter(2, pass);
+	        nativeQuery.setParameter(1, cedula1);
+	        nativeQuery.setParameter(2, pass1);
 	        Object[] result = (Object[]) nativeQuery.getSingleResult();
-	        p.setNombre((String) result[0]);
+	        p.setCedula((String) result[0]);
 	        p.setEdad((Integer) result[1]);
+	      
 
 	       
 	

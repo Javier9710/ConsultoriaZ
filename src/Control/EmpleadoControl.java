@@ -1,6 +1,8 @@
 package Control;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,11 +10,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+
 import Dao.EmpleadoDao;
 import Dao.PersonaDao;
+import Dao.ServicioDao;
 import Dto.Cargo;
 import Dto.Empleado;
 import Dto.Persona;
+import Dto.Servicio;
 
 /**
  * Servlet implementation class EmpleadoControl
@@ -97,11 +102,12 @@ public class EmpleadoControl extends HttpServlet {
 			String cedula1 = request.getParameter("cedula");
 			String pass1 = request.getParameter("pass");
 			p1 = pD3.validar(cedula1, pass1);
-			System.out.println("1");
+			ServicioDao AD = new ServicioDao();
+			
 			if(p1!=null) {
-            System.out.println("2");
+				
 				HttpSession sesion = request.getSession();
-				sesion.setAttribute("persona", p1);
+				sesion.setAttribute("empleado", p1);
 				response.sendRedirect("WebApp/inicioEmpleado.jsp");
 			}
 			break;
