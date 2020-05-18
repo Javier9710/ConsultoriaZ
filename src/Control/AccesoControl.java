@@ -55,7 +55,7 @@ public class AccesoControl extends HttpServlet {
 		case "cerrar":
 			HttpSession session = request.getSession();
 			session.invalidate();
-			response.sendRedirect("../indexo.jsp");
+			response.sendRedirect("../index.jsp");
 			break;
 
 		default:
