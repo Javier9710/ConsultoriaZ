@@ -212,6 +212,18 @@
 						</c:forEach>
 					</select>
                 </div>
+                <div class="form-group row">
+                    <label  class="col-sm-2 col-form-label" style="color: black;">Fecha Inicio:</label>
+                      <div class="col-sm-10">
+                           <input type="date" class="form-control" name="" placeholder="Fecha" required="Llena este campo">
+                     </div>
+                </div>
+                <div class="form-group row">
+                    <label  class="col-sm-2 col-form-label" style="color: black;">Fecha Final:</label>
+                      <div class="col-sm-10">
+                           <input type="date" class="form-control" name="" placeholder="Fecha" required="Llena este campo">
+                     </div>
+                </div>
 
                 <div class="form-group">
                     <textarea _ngcontent-c0="" class="form-control" name="descripcion" placeholder="Descripcion" type="text" required></textarea>
