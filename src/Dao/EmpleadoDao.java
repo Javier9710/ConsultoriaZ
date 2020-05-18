@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
 import Dto.Empleado;
+import Dto.Persona;
 import Util.Conexion;
 
 
@@ -17,6 +18,24 @@ public class EmpleadoDao {
 		em = Conexion.getEm();
 		
 		
+	}
+	
+	
+	public Persona validar(String cedula, String pass) {
+		Persona p = new Persona();
+		 Query nativeQuery = em.createNativeQuery("SELECT nombre,edad FROM Persona p, Empleado a "
+		 		                                 + "WHERE p.cedula =? "
+		 		                                 + "and p.cedula=a.persona "
+		 		                                 + "and a.pass=?");
+	        nativeQuery.setParameter(1, cedula);
+	        nativeQuery.setParameter(2, pass);
+	        Object[] result = (Object[]) nativeQuery.getSingleResult();
+	        p.setNombre((String) result[0]);
+	        p.setEdad((Integer) result[1]);
+
+	       
+	
+		return p;
 	}
 	
 	public List<Empleado> listar(){

@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import Dao.EmpleadoDao;
 import Dao.PersonaDao;
@@ -88,6 +89,21 @@ public class EmpleadoControl extends HttpServlet {
 			eD1.eliminar(id);
 			pD1.eliminar(id);
 			response.sendRedirect("WebApp/listarEmpleado.jsp");
+			
+		case "ingreso":
+			Persona p1 = new Persona();
+			PersonaDao pD3 = new PersonaDao();
+			String cedula1 = request.getParameter("cedula");
+			String pass1 = request.getParameter("pass");
+			p1 = pD3.validar(cedula1, pass1);
+			System.out.println("1");
+			if(p1!=null) {
+System.out.println("2");
+				HttpSession sesion = request.getSession();
+				sesion.setAttribute("persona", p1);
+				response.sendRedirect("WebApp/inicioEmpleado.jsp");
+			}
+			break;
 
 		default:
 			break;

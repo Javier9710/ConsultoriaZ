@@ -22,7 +22,7 @@
       <h2 id="nom">Consultorias Zambrano</h2>
       <h5 id="nom2">Sector de Ingenieria - <b>Empleado</b></h5>
       <hr>
-        <form id="formLogin" method="post" action="EmpleadoControl">
+        <form id="formLogin" method="post" action="../EmpleadoControl">
  
           <div class="form-group row"><br>
         
