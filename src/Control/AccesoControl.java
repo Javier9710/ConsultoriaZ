@@ -46,9 +46,7 @@ public class AccesoControl extends HttpServlet {
 			if(p!=null) {
 				HttpSession sesion = request.getSession();
 				sesion.setAttribute("persona", p);
-				String site = new String("http://localhost:8080/ConsultoriaZ/WebApp/inicio.jsp");
-				response.setStatus(response.SC_MOVED_TEMPORARILY);
-				response.setHeader("Location", site);
+				response.sendRedirect("WebApp/inicio.jsp");
 			}
 			
 			
@@ -57,9 +55,7 @@ public class AccesoControl extends HttpServlet {
 		case "cerrar":
 			HttpSession session = request.getSession();
 			session.invalidate();
-			String site = new String("http://localhost:8080/ConsultoriaZ/index.jsp");
-			response.setStatus(response.SC_MOVED_TEMPORARILY);
-			response.setHeader("Location", site);
+			response.sendRedirect("../indexo.jsp");
 			break;
 
 		default:

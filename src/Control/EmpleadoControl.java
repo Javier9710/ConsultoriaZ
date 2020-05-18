@@ -70,18 +70,15 @@ public class EmpleadoControl extends HttpServlet {
 			e.setCargo(c);
 			e.setPersona(p);
 			eD.registrar(e);
-			String site = new String("http://localhost:8080/ConsultoriaZ/WebApp/regEmpleado.jsp");
-			response.setStatus(response.SC_MOVED_TEMPORARILY);
-			response.setHeader("Location", site);
+			response.sendRedirect("WebApp/regEmpleado.jsp");
+
 			break;
 			
         case "listar":
         	
         	PersonaDao pD = new PersonaDao();
-			String site1 = new String("http://localhost:8080/ConsultoriaZ/WebApp/listarEmpleado.jsp");
-			response.setStatus(response.SC_MOVED_TEMPORARILY);
-			response.setHeader("Location", site1);
-			
+        	response.sendRedirect("WebApp/listarEmpleado.jsp");
+
 			break;
 
         case "eliminar":
@@ -90,9 +87,8 @@ public class EmpleadoControl extends HttpServlet {
 			String id = request.getParameter("id");
 			eD1.eliminar(id);
 			pD1.eliminar(id);
-			String site2 = new String("http://localhost:8080/ConsultoriaZ/WebApp/listarEmpleado.jsp");
-			response.setStatus(response.SC_MOVED_TEMPORARILY);
-			response.setHeader("Location", site2);
+			response.sendRedirect("WebApp/listarEmpleado.jsp");
+
 		default:
 			break;
 		}

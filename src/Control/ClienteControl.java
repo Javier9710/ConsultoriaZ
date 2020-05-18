@@ -45,27 +45,23 @@ public class ClienteControl extends HttpServlet {
 			c.setDireccion(direccion);
 			c.setContacto(contacto);
 			cD.registrar(c);
-			String site = new String("http://localhost:8080/ConsultoriaZ/WebApp/regCliente.jsp");
-			response.setStatus(response.SC_MOVED_TEMPORARILY);
-			response.setHeader("Location", site);
+			response.sendRedirect("WebApp/regCliente.jsp");
+
 			break;
 
 		case "listar":
 			ClienteDao cD1 = new ClienteDao();
-			String site1 = new String("http://localhost:8080/ConsultoriaZ/WebApp/listarCliente.jsp");
-			response.setStatus(response.SC_MOVED_TEMPORARILY);
-			response.setHeader("Location", site1);
+			response.sendRedirect("WebApp/listarCliente.jsp");
+
 			break;
 			
 		case "eliminar": 
 			String id = request.getParameter("id");
 			ClienteDao cD2 = new ClienteDao();
 			cD2.eliminar(id);
-			String site2 = new String("http://localhost:8080/ConsultoriaZ/WebApp/listarCliente.jsp");
-			response.setStatus(response.SC_MOVED_TEMPORARILY);
-			response.setHeader("Location", site2);
-			
-			
+			response.sendRedirect("WebApp/listarCliente.jsp");
+			break;
+				
 		}
 		
 		
