@@ -8,6 +8,9 @@
 	<packaging>war</packaging>
 	<build>
 		
+		
+		
+		
 		<sourceDirectory>src</sourceDirectory>
 		<plugins>
 			<plugin>
