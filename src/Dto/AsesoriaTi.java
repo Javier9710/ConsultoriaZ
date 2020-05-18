@@ -9,7 +9,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "asesoria_ti")
+@Table(name = "Asesoria_ti")
 public class AsesoriaTi implements Serializable {
 	
 	/**

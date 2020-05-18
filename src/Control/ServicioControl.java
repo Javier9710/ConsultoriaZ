@@ -61,9 +61,8 @@ public class ServicioControl extends HttpServlet {
 			a.setServicio(s);
 			a.setDescripcion(descripcion);
 			aD.registrar(a);
-			String site = new String("http://localhost:8080/ConsultoriaZ/WebApp/regServicio.jsp");
-			response.setStatus(response.SC_MOVED_TEMPORARILY);
-			response.setHeader("Location", site);
+			response.sendRedirect("WebApp/regServicio.jsp");
+
 			
 			break;
 
@@ -73,17 +72,14 @@ public class ServicioControl extends HttpServlet {
 			AsesoriaDao aT = new AsesoriaDao();
 			aT.eliminar(id);
 			sD1.eliminar(id);
-			String site1 = new String("http://localhost:8080/ConsultoriaZ/WebApp/listarServicio.jsp");
-			response.setStatus(response.SC_MOVED_TEMPORARILY);
-			response.setHeader("Location", site1);			
+			response.sendRedirect("WebApp/listarServicio.jsp");
+		
 			break;
 			
 			
 		case "listar":
 			ServicioDao AD = new ServicioDao();
-			String site2 = new String("http://localhost:8080/ConsultoriaZ/WebApp/listarServicio.jsp");
-			response.setStatus(response.SC_MOVED_TEMPORARILY);
-			response.setHeader("Location", site2);
+			response.sendRedirect("WebApp/listarServicio.jsp");
 			break;
 			
 		}
