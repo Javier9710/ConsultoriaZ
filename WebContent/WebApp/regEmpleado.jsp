@@ -22,6 +22,7 @@
   <!-- Custom styles for this template-->
   <link href="../carpetaplantilla/css/sb-admin-2.min.css" rel="stylesheet">
   <link rel="shortcut icon" href="../carpetaplantilla/img/icon.png">
+  <link rel="stylesheet" type="text/css" href="../carpetaplantilla/estilo/style.css">
 
 </head>
 
@@ -222,20 +223,18 @@
                    <input _ngcontent-c0=""  name="pass" type="password" placeholder="Contraseña" class="form-control" required>
                 </div>
 
-                <div class="form-group row">
-                    <label class="col-sm-1 col-form-label" style="color: black;">Foto</label>
-                      <div class="col-sm-11">
-                           <input type="file" class="form-control-file" name="foto" placeholder="Foto" required="Llena este campo">
-                     </div>
-                </div>
-
+                <div class="input-file-container">  
+    <input class="input-file" id="my-file" type="file">
+    <label tabindex="0" for="my-file" class="input-file-trigger">Foto</label>
+  </div>
+  <p class="file-return"></p>
+                
                  <div class="form-group">
                   <div class="col-md-12 text-center">
                     <button  type="submit" name="accion" value="registro"  style="width: 40%;" class="btn btn-primary" >Registrar</button>
                   </div>
                 </div>
              
-               
               </form>
               
             </div>
@@ -276,6 +275,7 @@
 
   <!-- Custom scripts for all pages-->
   <script src="../carpetaplantilla/js/sb-admin-2.min.js"></script>
+  <script src="../carpetaplantilla/js/file.js"></script>
 
 </body>
 
