@@ -18,7 +18,7 @@
         <div class="col-sm-8 main-section">
             <div class="modal-content">
                 <div class="col-12 user-img">
-                    <img src="../carpetaplantilla/img/zam.png" />
+                    <img src="carpetaplantilla/img/zam.png" />
                     <h3>Consultorías Zambrano</h3>
                 </div>
 
