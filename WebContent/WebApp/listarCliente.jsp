@@ -170,16 +170,17 @@
         </nav>
     </div>
     
-    <div class="container-fluid" style="background-image: url(https://www.publicdomainpictures.net/pictures/280000/velka/gradient-yellow-to-blue-background.jpg); height: 100%;" >
-        <div class="row justify-content-center align-self-center" style="background-color: white;"><br>
-        
-	
-
-          <legend class="text-center header" style="color: black;">Listado de Clientes</legend>
+    <div class="container-fluid" style="background-image: url(https://www.publicdomainpictures.net/pictures/280000/velka/gradient-yellow-to-blue-background.jpg); height: 100%;" ><br>
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">Listado de Clientes</h6>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
           
           <jsp:useBean id="cD1" class="Dao.ClienteDao" scope="request"></jsp:useBean>
           
-          <table class="table">
+           <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
       <thead>
         <tr>
           
@@ -230,10 +231,12 @@
 
        </div>
       </div>
+  </div>
       <!-- End of Main Content -->
       
  <!-- Footer -->
-      <footer class="sticky-footer bg-white">
+      <footer class="sticky-footer bg-white" style="position: absolute;
+  bottom: 0; width: 81%;">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
             <span>Copyright &copy; Your Website 2020</span>
