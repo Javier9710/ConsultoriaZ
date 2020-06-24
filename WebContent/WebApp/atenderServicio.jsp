@@ -136,19 +136,18 @@
                     <input _ngcontent-c0="" class="form-control"  name="" placeholder="Cliente" type="text" required>
                 </div>
 
+                <div class="form-row">
+            
+                   <div class="col">
+                    <label  class="" style="color: black;">Fecha de Atención:</label>
+                       <input type="date" class="form-control" placeholder="First name">
+                   </div>
+                   <div class="col">
+                    <label  class="" style="color: black;">Hora de Atención:</label>
+                       <input type="time" class="form-control" placeholder="Last name">
+                  </div>
+                </div><br>
 
-                <div class="form-group row">
-                    <label  class="col-sm-2 col-form-label" style="color: black;">Fecha Atención:</label>
-                      <div class="col-sm-10">
-                           <input type="date" class="form-control" name="" placeholder="Fecha" required="Llena este campo">
-                     </div>
-                </div>
-                <div class="form-group row">
-                    <label  class="col-sm-2 col-form-label" style="color: black;">Hora:</label>
-                      <div class="col-sm-10">
-                           <input type="time" class="form-control" name="" placeholder="Hora" required="Llena este campo">
-                     </div>
-                </div>
 
                  <div class="form-group">
                   <div class="col-md-12 text-center">
