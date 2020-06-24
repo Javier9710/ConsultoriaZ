@@ -210,7 +210,7 @@
         <c:forEach var="p" items="${pD.listar1()}">
 
           <tr>
-            <td style="text-align: center"><img src="<c:out value="${p.foto}"/>"
+            <td style="text-align: center"><img src="C:\Users\acer\Pictures\img\<c:out value="${p.foto}"/>"
               with="120px" height="120px"></td> 
             <td style="text-align: center"><c:out value="${p.cedula}"/></td>
             <td style="text-align: center"><c:out value="${p.nombre}"/></td>
@@ -219,7 +219,7 @@
             <td>
           <form action="../EmpleadoControl" method="get">
             <input type="hidden" name="id" value="${p.cedula}">
-            <div class="form-group row">
+            <div style="text-align: center" class="form-group row">
               <div class="col-sm-12">
                 <button type="submit" name="accion" value="editar"
                   class="btn btn-primary">Editar</button>

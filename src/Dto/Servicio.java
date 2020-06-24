@@ -34,8 +34,10 @@ public class Servicio implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "cliente")
 	private Cliente cliente;
-	private Date fecha;
+	private String fecha;
+	private String fechaFin;
 	private float precio;
+	private String estado="Asignado"; 
 	
 	
 	
@@ -85,12 +87,12 @@ public class Servicio implements Serializable {
 	}
 
 
-	public Date getFecha() {
+	public String getFecha() {
 		return fecha;
 	}
 
 
-	public void setFecha(Date fecha) {
+	public void setFecha(String fecha) {
 		this.fecha = fecha;
 	}
 
@@ -103,6 +105,29 @@ public class Servicio implements Serializable {
 	public void setPrecio(float precio) {
 		this.precio = precio;
 	}
+
+
+	public String getFechaFin() {
+		return fechaFin;
+	}
+
+
+	public void setFechaFin(String fechaFin) {
+		this.fechaFin = fechaFin;
+	}
+
+
+	public String getEstado() {
+		return estado;
+	}
+
+
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
+	
+	
+	
 	
 	
 

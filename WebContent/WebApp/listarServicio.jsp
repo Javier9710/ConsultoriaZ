@@ -185,9 +185,12 @@
         <tr>
           
           <th style="text-align: center" scope="col">Nombre</th>
+          <th style="text-align: center" scope="col">Inicio</th>
+          <th style="text-align: center" scope="col">Fin</th>
           <th style="text-align: center" scope="col">Precio</th>
           <th style="text-align: center" scope="col">Empleado</th>
           <th style="text-align: center" scope="col">Cliente</th>
+          <th style="text-align: center" scope="col">Estado</th>
       
           <th style="text-align: center" scope="col">Acciones</th>
         </tr>
@@ -203,14 +206,18 @@
             
           
             <td style="text-align: center"><c:out value="${s.nombre}"/></td>
+            <td style="text-align: center"><c:out value="${s.fecha}"/></td>
+            <td style="text-align: center"><c:out value="${s.fechaFin}"/></td>
             <td style="text-align: center"><c:out value="${s.precio}"/></td>
-            <td style="text-align: center" scope="col"><c:out value="${s.empleado.getPersona().getCedula()}" /></td>
-            <td style="text-align: center" scope="col"><c:out value="${s.cliente.getNit()}" /></td>
+            <td style="text-align: center" scope="col"><c:out value="${s.empleado.getPersona().getNombre()}" /></td>
+            <td style="text-align: center" scope="col"><c:out value="${s.cliente.getNombre()}" /></td>
+            <td style="text-align: center"><c:out value="${s.estado}"/></td>
+            
 
             <td>
           <form action="../ServicioControl" method="get">
             <input type="hidden" name="id" value="${s.id}">
-            <div class="form-group row">
+            <div style="text-align: center" class="form-group row">
               <div class="col-sm-12">
                 <button type="submit" name="accion" value="editar"
                   class="btn btn-primary">Editar</button>

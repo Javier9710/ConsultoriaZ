@@ -14,6 +14,7 @@ public class Admin implements Serializable {
 	@JoinColumn(name="persona")
 	private Persona persona;
 	
+	
 
 	private String pass;
 

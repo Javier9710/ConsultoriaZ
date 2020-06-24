@@ -6,9 +6,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import Dao.ClienteDao;
+import Dao.PersonaDao;
 import Dto.Cliente;
+import Dto.Persona;
 
 /**
  * Servlet implementation class ClienteControl
@@ -61,6 +64,8 @@ public class ClienteControl extends HttpServlet {
 			cD2.eliminar(id);
 			response.sendRedirect("WebApp/listarCliente.jsp");
 			break;
+			
+
 				
 		}
 		

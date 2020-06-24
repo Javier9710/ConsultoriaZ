@@ -1,34 +1,24 @@
 package Util;
-import Dao.EmpleadoDao;
-import Dao.PersonaDao;
-import Dto.Cargo;
-import Dto.Empleado;
-import Dto.Persona;
+
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class Test {
 	
 
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ParseException {
 		// TODO Auto-generated method stub
- //PersonaDao pD =new PersonaDao();
- EmpleadoDao eD = new EmpleadoDao();
- Empleado e = new Empleado();
- Persona p = new Persona();
- Cargo c =new Cargo();
- c.setId(1);
- p.setCedula("1090");
- e.setPersona(p);
- e.setPass("1234");
- e.setCargo(c);
- System.out.println("cedula: "+p.getCedula());
- System.out.println("pass: "+e.getPass());
- System.out.println("cargo: "+c.getId());
- eD.registrar(e);
- //pD.listar();
- //pD.buscar(3);
-// eD.devuelveE(9);
-
+		String completionDate1 = "21-10-2016";
+		 System.out.println(completionDate1);
+		 DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
+		 Date date = null;
+		 date = (Date) df.parse(completionDate1);
+		 System.out.println(date);
+		 DateFormat df1 = new SimpleDateFormat("yyyy-MM-dd");
+		 System.out.println(df1.format(date));
 
 	}
 
