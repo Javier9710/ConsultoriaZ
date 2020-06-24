@@ -190,10 +190,18 @@
                 <div class="form-group">
                     <input _ngcontent-c0="" class="form-control" name="precio" placeholder="Precio" type="text" required>
                 </div>
+                <div class="form-group">
+                    <select class="form-control" name="cargo" >
+                      <option>Cargo</option>
+                      <option value="1">Asesoría TI</option>
+                      <option value="2">Asesoría Jurídica</option>
+                      <option value="3">Asesoría de Gestión</option>
+                   </select>
+                </div>
                 
                 <div class="form-group">
                 <jsp:useBean id="PS" class="Dao.PersonaDao" scope="request"></jsp:useBean>
-	                <select name="empleado">
+	                <select class="form-control"name="empleado">
 						<option>Empleado</option>
 						<c:forEach var="p" items="${PS.listar1()}">
 						
@@ -204,7 +212,7 @@
                 
                 <div class="form-group">
                 <jsp:useBean id="CS" class="Dao.ClienteDao" scope="request"></jsp:useBean>
-	                <select name="cliente">
+	                <select class="form-control" name="cliente">
 						<option>Cliente</option>
 						<c:forEach var="c" items="${CS.listar()}">
 						
@@ -212,18 +220,17 @@
 						</c:forEach>
 					</select>
                 </div>
-                <div class="form-group row">
-                    <label  class="col-sm-2 col-form-label" style="color: black;">Fecha Inicio:</label>
-                      <div class="col-sm-10">
-                           <input type="date" class="form-control" name="fechai" placeholder="Fecha" required="Llena este campo">
-                     </div>
-                </div>
-                <div class="form-group row">
-                    <label  class="col-sm-2 col-form-label" style="color: black;">Fecha Final:</label>
-                      <div class="col-sm-10">
-                           <input type="date" class="form-control" name="fechaf" placeholder="Fecha" required="Llena este campo">
-                     </div>
-                </div>
+                <div class="form-row">
+            
+                   <div class="col">
+                    <label  class="" style="color: black;">Fecha de Inicio:</label>
+                       <input type="date" class="form-control" placeholder="First name">
+                   </div>
+                   <div class="col">
+                    <label  class="" style="color: black;">Fecha final:</label>
+                       <input type="date" class="form-control" placeholder="Last name">
+                  </div>
+                </div><br>
 
                 <div class="form-group">
                     <textarea _ngcontent-c0="" class="form-control" name="descripcion" placeholder="Descripcion" type="text" required></textarea>
