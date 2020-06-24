@@ -182,42 +182,26 @@
 
 
        
-       <div class="container-fluid" style="background-image: url(https://www.publicdomainpictures.net/pictures/280000/velka/gradient-yellow-to-blue-background.jpg); height: 100%;" >
-        <div class="row justify-content-center align-self-center" style="background-color: white;"><br>
-        
-	
-
-          <legend class="text-center header" style="color: black;">Listado de Empleados</legend>
+       <div class="container-fluid" style="background-image: url(https://www.publicdomainpictures.net/pictures/280000/velka/gradient-yellow-to-blue-background.jpg); height: 100%;" ><br>
+       <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">Listado de Empleados</h6>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
           
           <jsp:useBean id="pD" class="Dao.PersonaDao" scope="request"></jsp:useBean>
           
-          <table class="table">
-      <thead>
-        <tr>
-          <th style="text-align: center" scope="col">Foto</th>
-          <th style="text-align: center" scope="col">Cedula</th>
-          <th style="text-align: center" scope="col">Nombre</th>
-          <th style="text-align: center" scope="col">Edad</th>
-          <th style="text-align: center" scope="col">Telefono</th>
-          <th style="text-align: center" scope="col">Acciones</th>
-        </tr>
-      </thead>
-
-      <tbody>
-
-
-
-        <c:forEach var="p" items="${pD.listar1()}">
-
-          <tr>
-            <td style="text-align: center"><img src="C:\Users\acer\Pictures\img\<c:out value="${p.foto}"/>"
-              with="120px" height="120px"></td> 
-            <td style="text-align: center"><c:out value="${p.cedula}"/></td>
-            <td style="text-align: center"><c:out value="${p.nombre}"/></td>
-            <td style="text-align: center"><c:out value="${p.edad}"/></td>
-            <td style="text-align: center"><c:out value="${p.telefono}"/></td>
-            <td>
-          <form action="../EmpleadoControl" method="get">
+          <div class="card-deck">
+            <c:forEach var="p" items="${pD.listar1()}">
+  <div class="card">
+    <img class="card-img-top" alt="Card image cap" src="C:\Users\acer\Pictures\img\<c:out value="${p.foto}"" />
+    <div class="card-body">
+      <h5 class="card-title"><c:out value="${p.nombre}"/></h5>
+      <p class="card-text"><c:out value="${p.cedula}"/></p>
+      <p class="card-text"><c:out value="${p.edad}" />años</p>
+      <p class="card-text"><c:out value="${p.telefono}"/></p><br>
+      <form action="../EmpleadoControl" method="get">
             <input type="hidden" name="id" value="${p.cedula}">
             <div style="text-align: center" class="form-group row">
               <div class="col-sm-12">
@@ -228,23 +212,22 @@
               </div>
             </div>
           </form>
-        </td>
-          </tr>
-
-        </c:forEach>
-
-
-
-      </tbody>
-
-    </table>
+    </div>
+  </div>
+  
+  </c:forEach>
+</div>
+          
 
        </div>
       </div>
+    </div>
+  </div>
       <!-- End of Main Content -->
 
       <!-- Footer -->
-      <footer class="sticky-footer bg-white">
+      <footer class="sticky-footer bg-white" style="position: absolute;
+  bottom: 0; width: 81%;">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
             <span>Copyright &copy; Your Website 2020</span>
