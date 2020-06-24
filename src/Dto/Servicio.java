@@ -17,7 +17,7 @@ import javax.persistence.Table;
  *
  */
 @Entity
-@Table(name = "Servicio")
+@Table(name = "TipoServicio")
 public class Servicio implements Serializable {
 	
 	/**
@@ -38,6 +38,9 @@ public class Servicio implements Serializable {
 	private String fechaFin;
 	private float precio;
 	private String estado="Asignado"; 
+	@ManyToOne
+	@JoinColumn(name="tipoServicio")
+	private TipoServicio tipoServicio;
 	
 	
 	
@@ -125,6 +128,18 @@ public class Servicio implements Serializable {
 	public void setEstado(String estado) {
 		this.estado = estado;
 	}
+
+
+	public TipoServicio getTipoServicio() {
+		return tipoServicio;
+	}
+
+
+	public void setTipoServicio(TipoServicio tipoServicio) {
+		this.tipoServicio = tipoServicio;
+	}
+	
+	
 	
 	
 	

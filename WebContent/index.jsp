@@ -22,7 +22,7 @@
                     <h3>Consultorías Zambrano</h3>
                 </div>
 
-                <form id="formLogin" class="col-12" action="AccesoControl" method="post">
+                <form id="formLogin" class="col-12" action="AccesoControl" method="get">
                     <div class="form-group" id="user-group">
                         <input type="text" class="form-control" placeholder="Cedula" name="cedula"required="Llena este campo"/>
                     </div>
