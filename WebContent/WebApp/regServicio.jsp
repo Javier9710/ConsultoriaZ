@@ -191,7 +191,7 @@
                     <input _ngcontent-c0="" class="form-control" name="precio" placeholder="Precio" type="text" required>
                 </div>
                 <div class="form-group">
-                    <select class="form-control" name="cargo" >
+                    <select class="form-control" name="tipo" >
                       <option>Tipo</option>
                       <option value="1">Asesoría TI</option>
                       <option value="2">Asesoría Jurídica</option>
