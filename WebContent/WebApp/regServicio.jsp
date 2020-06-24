@@ -192,7 +192,7 @@
                 </div>
                 <div class="form-group">
                     <select class="form-control" name="cargo" >
-                      <option>Cargo</option>
+                      <option>Tipo</option>
                       <option value="1">Asesoría TI</option>
                       <option value="2">Asesoría Jurídica</option>
                       <option value="3">Asesoría de Gestión</option>
