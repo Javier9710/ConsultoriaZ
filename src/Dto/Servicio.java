@@ -3,6 +3,7 @@ package Dto;
 import java.io.Serializable;
 import java.sql.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,7 +18,7 @@ import javax.persistence.Table;
  *
  */
 @Entity
-@Table(name = "TipoServicio")
+@Table(name = "Servicio")
 public class Servicio implements Serializable {
 	
 	/**
@@ -41,6 +42,7 @@ public class Servicio implements Serializable {
 	@ManyToOne
 	@JoinColumn(name="tipoServicio")
 	private TipoServicio tipoServicio;
+	@Column(name="descripcion")
 	private String descripcion;
 	
 	

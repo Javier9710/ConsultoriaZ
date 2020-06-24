@@ -17,6 +17,7 @@ import Dto.Cliente;
 import Dto.Empleado;
 import Dto.Persona;
 import Dto.Servicio;
+import Dto.TipoServicio;
 
 /**
  * Servlet implementation class ServicioControl
@@ -46,10 +47,12 @@ public class ServicioControl extends HttpServlet {
 			Servicio s =new Servicio();
 			Cliente c = new Cliente();
 			Empleado e = new Empleado();
+			TipoServicio t = new TipoServicio();
 			String nombre = request.getParameter("nombre");
 			float precio = Float.parseFloat( request.getParameter("precio"));
 			String empleado = request.getParameter("empleado");
 			String cliente = request.getParameter("cliente");
+			int tipo = Integer.parseInt(request.getParameter("tipo"));
 			String descripcion = request.getParameter("descripcion");
 			//cast a fecha
 			
@@ -59,6 +62,7 @@ public class ServicioControl extends HttpServlet {
 
 			p.setCedula(empleado);
 			c.setNit(cliente);
+			t.setId(tipo);
 			e.setPersona(p);
 			s.setNombre(nombre);
 			s.setPrecio(precio);
@@ -67,6 +71,8 @@ public class ServicioControl extends HttpServlet {
 			s.setFecha(fechai);
 			s.setFechaFin(fechaf);
 			s.setDescripcion(descripcion);
+			s.setTipoServicio(t);
+			
 			sD.registrar(s);
 			response.sendRedirect("WebApp/regServicio.jsp");
 
