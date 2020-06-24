@@ -41,6 +41,7 @@ public class Servicio implements Serializable {
 	@ManyToOne
 	@JoinColumn(name="tipoServicio")
 	private TipoServicio tipoServicio;
+	private String descripcion;
 	
 	
 	
@@ -138,6 +139,18 @@ public class Servicio implements Serializable {
 	public void setTipoServicio(TipoServicio tipoServicio) {
 		this.tipoServicio = tipoServicio;
 	}
+
+
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+	
+	
 	
 	
 	

@@ -12,9 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import Dao.AsesoriaDao;
 import Dao.ServicioDao;
-import Dto.AsesoriaTi;
 import Dto.Cliente;
 import Dto.Empleado;
 import Dto.Persona;
@@ -44,8 +42,6 @@ public class ServicioControl extends HttpServlet {
 		switch (accion) {
 		case "registro":
 			ServicioDao sD = new ServicioDao();
-			AsesoriaTi a =new AsesoriaTi();
-			AsesoriaDao aD = new AsesoriaDao();
 			Persona p = new Persona();
 			Servicio s =new Servicio();
 			Cliente c = new Cliente();
@@ -70,10 +66,8 @@ public class ServicioControl extends HttpServlet {
 			s.setEmpleado(e);
 			s.setFecha(fechai);
 			s.setFechaFin(fechaf);
+			s.setDescripcion(descripcion);
 			sD.registrar(s);
-			a.setServicio(s);
-			a.setDescripcion(descripcion);
-			aD.registrar(a);
 			response.sendRedirect("WebApp/regServicio.jsp");
 
 			
@@ -82,8 +76,6 @@ public class ServicioControl extends HttpServlet {
 		case "eliminar":
 			int id = Integer.parseInt(request.getParameter("id"));
 			ServicioDao sD1  = new ServicioDao();
-			AsesoriaDao aT = new AsesoriaDao();
-			aT.eliminar(id);
 			sD1.eliminar(id);
 			response.sendRedirect("WebApp/listarServicio.jsp");
 		
