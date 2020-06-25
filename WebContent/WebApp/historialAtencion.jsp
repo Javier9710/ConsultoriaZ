@@ -14,7 +14,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Servicios</title>
+  <title>Atenciones</title>
 
   <!-- Custom fonts for this template-->
   <link href="../carpetaplantilla/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -116,48 +116,22 @@
        <div class="container-fluid" style="background-image: url(https://www.publicdomainpictures.net/pictures/280000/velka/gradient-yellow-to-blue-background.jpg); height: 100%;" ><br>
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary" style="font-size: 26px;">BIENVENIDO </h6> 
-              <h6 class="m-0 font-weight-bold text-primary">Listado de Servicios</h6>
+               
+              <h6 class="m-0 font-weight-bold text-primary">Historial de atenciones</h6>
             </div>
             <div class="card-body">
               <div class="table-responsive">
 
-                <jsp:useBean id="AD" class="Dao.ServicioDao" scope="request"></jsp:useBean>
+                <jsp:useBean id="AD" class="Dao.AtencionServicioDao" scope="request"></jsp:useBean>
 
                 <div class="card-deck">
-                  <c:forEach var="d" items="${AD.listar1()}">
+                  <c:forEach var="s" items="${AD.listar1()}">
                   <div class="card border-primary mb-3" style="max-width: 18rem;">
-                      <div class="card-header" ><c:out value="${d.tipoServicio.nombre}"/></div>
+                      <div class="card-header" ><c:out value="${d.getTipo.getDescripcion()}"/></div>
                       <div class="card-body">
-                        <h5 class="card-title"><c:out value="${d.getNombre()}"/></h5>
-                        <p class="card-text"><c:out value="${d.getId()}"/></p>
-                        <p class="card-text"><c:out value="${d.getPrecio()}"/></p>
-                        <p class="card-text"><c:out value="${d.getFecha()}"/></p>
-                        <p class="card-text"><b>Cliente:</b> <c:out value="${d.getCliente().getNombre()}"/></p>
-<<<<<<< HEAD
-                        <form action="MensajeControl" method="post">
-                       <input type="hidden" name="id" value="${d.getId()}">
-                        <div style="text-align: center" class="form-group row">
-                       <div class="col-sm-12">
-                      <button type="button" onclick="window.location.href='atenderServicio.jsp'" 
-                  class="btn btn-primary">Atender</button><br>
-                  <form action="../AtenderControl" method="get">
-                    <input type="hidden" name="id" value="${s.id}">
-                  <button type="button" name="accion" value="historial" 
-                  class="btn btn-primary">Ver Historial</button>
-                </form>
-=======
-                        <form action="../AtenderControl" method="get">
-                       <input type="hidden" name="ids" value="${d.getId()}">
-                        <div class="form-group row">
-                       <div class="col-sm-12">
-                      <button type="submit" name="accion" value="atenderS" 
-                        class="btn btn-primary btn-lg">Atender</button>
->>>>>>> 0ed8a47f3fc2e03073b637e9ebd877de9f308226
-                
-              </div>
-            </div>
-        
+                        <h5 class="card-title"><c:out value="${d.getTitulo()}"/></h5>
+                        <p class="card-text"><c:out value="${d.getId()"/></p>
+                        <p class="card-text"><c:out value="${d.getDescripcion()}"/></p>
 
                      </div>
                     </div>
