@@ -54,7 +54,7 @@ public class AtenderControl extends HttpServlet {
 			//s.setId(servicio);
 			int id = Integer.parseInt(request.getParameter("id"));
 			s.setId(var);
-			s.setEstado("En Atencion");
+			
 			int tipo = Integer.parseInt(request.getParameter("tipo"));
 			t.setId(tipo);
 			String titulo = request.getParameter("nombre");
@@ -68,14 +68,19 @@ public class AtenderControl extends HttpServlet {
 			as.setAtender(a);
 			aD.registrar(a);
 			asD.registrar(as);
+			s.setEstado("En Atencion");
 			response.sendRedirect("WebApp/inicioEmpleado.jsp");
-
+			
 			break;
 			
 		case "atenderS":
 			response.sendRedirect("WebApp/atenderServicio.jsp");
 			var = Integer.parseInt(request.getParameter("ids"));
 			break;
+			
+		case "historial":
+			var = Integer.parseInt(request.getParameter("ids"));
+			response.sendRedirect("WebApp/historialAtencion.jsp");
 			
 		default:
 			break;

@@ -17,7 +17,7 @@ public class AtencionServicioDao {
 		
 	}
 	
-	public List<AtencionServicio> listar(){
+	public List<AtencionServicio> listar1(){
 		return (List<AtencionServicio>) em.createQuery("select c from AtencionServicio c").getResultList();	
 		
 	}

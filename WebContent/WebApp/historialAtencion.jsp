@@ -125,13 +125,13 @@
                 <jsp:useBean id="AD" class="Dao.AtencionServicioDao" scope="request"></jsp:useBean>
 
                 <div class="card-deck">
-                  <c:forEach var="s" items="${AD.listar1()}">
+                  <c:forEach var="d" items="${AD.listar1()}">
                   <div class="card border-primary mb-3" style="max-width: 18rem;">
-                      <div class="card-header" ><c:out value="${d.getTipo.getDescripcion()}"/></div>
+                      <div class="card-header" >Tipo: <c:out value="${d.atender.tipo}"/></div>
                       <div class="card-body">
-                        <h5 class="card-title"><c:out value="${d.getTitulo()}"/></h5>
-                        <p class="card-text"><c:out value="${d.getId()"/></p>
-                        <p class="card-text"><c:out value="${d.getDescripcion()}"/></p>
+                        <h5 class="card-title">Titulo: <c:out value="${d.atender.titulo}"/></h5>
+                        <p class="card-text">IdServico: <c:out value="${d.id}"/></p>
+                        <p class="card-text">Descripcion: <c:out value="${d.atender.descripcion}"/></p>
 
                      </div>
                     </div>

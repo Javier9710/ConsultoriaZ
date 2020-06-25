@@ -134,29 +134,21 @@
                         <p class="card-text"><c:out value="${d.getPrecio()}"/></p>
                         <p class="card-text"><c:out value="${d.getFecha()}"/></p>
                         <p class="card-text"><b>Cliente:</b> <c:out value="${d.getCliente().getNombre()}"/></p>
-<<<<<<< HEAD
-                        <form action="MensajeControl" method="post">
-                       <input type="hidden" name="id" value="${d.getId()}">
-                        <div style="text-align: center" class="form-group row">
-                       <div class="col-sm-12">
-                      <button type="button" onclick="window.location.href='atenderServicio.jsp'" 
-                  class="btn btn-primary">Atender</button><br>
-                  <form action="../AtenderControl" method="get">
-                    <input type="hidden" name="id" value="${s.id}">
-                  <button type="button" name="accion" value="historial" 
-                  class="btn btn-primary">Ver Historial</button>
-                </form>
-=======
-                        <form action="../AtenderControl" method="get">
+
+             
+              <form action="../AtenderControl" method="get">
                        <input type="hidden" name="ids" value="${d.getId()}">
                         <div class="form-group row">
                        <div class="col-sm-12">
                       <button type="submit" name="accion" value="atenderS" 
                         class="btn btn-primary btn-lg">Atender</button>
->>>>>>> 0ed8a47f3fc2e03073b637e9ebd877de9f308226
+                        <button type="submit" name="accion" value="historial" 
+                  class="btn btn-primary ">Ver Historial</button>
+
                 
               </div>
             </div>
+            </form>
         
 
                      </div>
