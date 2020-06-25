@@ -203,9 +203,7 @@
        <div class="container-fluid" style="background-image: url(https://www.publicdomainpictures.net/pictures/280000/velka/gradient-yellow-to-blue-background.jpg ); height: 100%;" >
 <div class="row justify-content-center align-self-center" style="background-color: white;"><br>
 
-          <legend class="text-center header" style="color: black;">Listado de Empleados</legend>
 
-               <legend class="text-center header" style="color: black;">BIENVENIDO</legend>
  
        
       </div>
