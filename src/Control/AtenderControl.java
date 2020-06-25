@@ -20,11 +20,15 @@ import Dto.Tipo;
 @WebServlet("/AtenderControl")
 public class AtenderControl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	private int var=0;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
     public AtenderControl() {
+    	
+    	
         super();
         // TODO Auto-generated constructor stub
     }
@@ -36,7 +40,7 @@ public class AtenderControl extends HttpServlet {
 		// TODO Auto-generated method stub
 		String accion = request.getParameter("accion");
 		switch (accion) {
-		case "atender":
+		case "atenderServicio":
 			Atender a = new Atender();
 			AtenderDao aD = new AtenderDao(); 
 			AtencionServicio as = new AtencionServicio();
@@ -46,12 +50,13 @@ public class AtenderControl extends HttpServlet {
 			String descripcion = request.getParameter("descripcion");
 			String fecha = request.getParameter("fecha");
 			String hora = request.getParameter("hora");
-			int servicio = Integer.parseInt(request.getParameter("servicio"));
-			s.setId(servicio);
-			int id = Integer.parseInt(request.getParameter("idser"));
+			//int servicio = Integer.parseInt(request.getParameter("ids"));
+			//s.setId(servicio);
+			int id = Integer.parseInt(request.getParameter("id"));
+			s.setId(var);
 			int tipo = Integer.parseInt(request.getParameter("tipo"));
 			t.setId(tipo);
-			String titulo = request.getParameter("titulo");
+			String titulo = request.getParameter("nombre");
 			a.setId(id);
 			a.setDescripcion(descripcion);
 			a.setTitulo(titulo);
@@ -65,7 +70,12 @@ public class AtenderControl extends HttpServlet {
 			response.sendRedirect("WebApp/inicioEmpleado.jsp");
 
 			break;
-
+			
+		case "atenderS":
+			response.sendRedirect("WebApp/atenderServicio.jsp");
+			var = Integer.parseInt(request.getParameter("ids"));
+			break;
+			
 		default:
 			break;
 		}

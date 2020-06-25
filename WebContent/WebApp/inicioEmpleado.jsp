@@ -125,15 +125,16 @@
                 <jsp:useBean id="AD" class="Dao.ServicioDao" scope="request"></jsp:useBean>
 
                 <div class="card-deck">
-                  <c:forEach var="s" items="${AD.listar1()}">
+                  <c:forEach var="d" items="${AD.listar1()}">
                   <div class="card border-primary mb-3" style="max-width: 18rem;">
-                      <div class="card-header" ><c:out value="${d.getTipoServicio.getNombre()}"/></div>
+                      <div class="card-header" ><c:out value="${d.tipoServicio.nombre}"/></div>
                       <div class="card-body">
                         <h5 class="card-title"><c:out value="${d.getNombre()}"/></h5>
-                        <p class="card-text"><c:out value="${d.getId()"/></p>
-                        <p class="card-text">$<c:out value="${d.getPrecio()}"/></p>
+                        <p class="card-text"><c:out value="${d.getId()}"/></p>
+                        <p class="card-text"><c:out value="${d.getPrecio()}"/></p>
                         <p class="card-text"><c:out value="${d.getFecha()}"/></p>
                         <p class="card-text"><b>Cliente:</b> <c:out value="${d.getCliente().getNombre()}"/></p>
+<<<<<<< HEAD
                         <form action="MensajeControl" method="post">
                        <input type="hidden" name="id" value="${d.getId()}">
                         <div style="text-align: center" class="form-group row">
@@ -145,6 +146,14 @@
                   <button type="button" name="accion" value="historial" 
                   class="btn btn-primary">Ver Historial</button>
                 </form>
+=======
+                        <form action="../AtenderControl" method="get">
+                       <input type="hidden" name="ids" value="${d.getId()}">
+                        <div class="form-group row">
+                       <div class="col-sm-12">
+                      <button type="submit" name="accion" value="atenderS" 
+                        class="btn btn-primary btn-lg">Atender</button>
+>>>>>>> 0ed8a47f3fc2e03073b637e9ebd877de9f308226
                 
               </div>
             </div>
