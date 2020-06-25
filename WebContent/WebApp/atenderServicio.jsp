@@ -119,21 +119,25 @@
 
 ;" style="border-radius: 20px;">
               
-                <form method="post" action="">
+                <form method="post" action="../AtenderControl" enctype="multipart/form-data">
                   
                <legend class="text-center header" style="color: black;">Atender Servicio</legend>
-
-
-                <div class="form-group">
-                    <input _ngcontent-c0="" class="form-control" name="" placeholder="Id Servicio" type="text" required>
+               
+               <div class="form-group">
+                    <input _ngcontent-c0="" class="form-control" name="id" placeholder="Id Atencion" type="text" required>
                 </div>
 
                 <div class="form-group">
-                    <input _ngcontent-c0="" class="form-control" name="" placeholder="Nombre" type="text" required>
+                    <input _ngcontent-c0="" class="form-control" name="nombre" placeholder="Nombre Atencion" type="text" required>
                 </div>
                
-                <div class="form-group">
-                    <input _ngcontent-c0="" class="form-control"  name="" placeholder="Cliente" type="text" required>
+               <div class="form-group">
+                    <select class="form-control" name="tipo" >
+                      <option>Tipo</option>
+                      <option value="1">Virtual</option>
+                      <option value="2">Presencial</option>
+                      
+                   </select>
                 </div>
 
                 <div class="form-row">
@@ -147,6 +151,10 @@
                        <input type="time" class="form-control" placeholder="Last name">
                   </div>
                 </div><br>
+                
+                <div class="form-group">
+                    <textarea _ngcontent-c0="" class="form-control" name="descripcion" placeholder="Descripcion" type="text" required></textarea>
+                </div>
 
 
                  <div class="form-group">
