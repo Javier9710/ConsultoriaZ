@@ -36,6 +36,7 @@
   <link href="../carpetaplantilla/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
   <link rel="shortcut icon" href="../carpetaplantilla/img/icon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
 
   <!-- Custom styles for this template-->
   <link href="../carpetaplantilla/css/sb-admin-2.min.css" rel="stylesheet">
@@ -200,14 +201,40 @@
 
 
        
-       <div class="container-fluid" style="background-image: url(https://www.publicdomainpictures.net/pictures/280000/velka/gradient-yellow-to-blue-background.jpg ); height: 100%;" >
-<div class="row justify-content-center align-self-center" style="background-color: white;"><br>
+       <div class="container-fluid" style="background-image: url(https://www.publicdomainpictures.net/pictures/280000/velka/gradient-yellow-to-blue-background.jpg ); height: 100%;" ><br>
+
+	<div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary" style="font-size: 26px;">BIENVENIDO </h6> 
+              <h6 class="m-0 font-weight-bold text-primary">Listado de Servicios</h6>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+
+              	<jsp:useBean id="AD" class="Dao.ServicioDao" scope="request"></jsp:useBean>
+
+              	<div class="card-deck">
+              		<c:forEach var="s" items="${AD.listar1()}">
+              		<div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+                      <div class="card-header bg-primary" ><c:out value="${s.tipoServicio.getNombre()}"/></div>
+                      <div class="card-body">
+                        <h5 class="card-title"><c:out value="${s.nombre}"/></h5>
+                        <p class="card-text">$<c:out value="${s.precio}"/></p>
+                        <p class="card-text"><c:out value="${s.fecha}"/><b>-></b><c:out value="${s.fechaFin}"/></p>
+                        <p class="card-text"><b><c:out value="${s.estado}"/></b></p>
+
+                     </div>
+                    </div>
+
+                    
+                </c:forEach>
+                </div>
+      </div>
+  </div>
+</div>
+</div>
 
 
- 
-       
-      </div>
-      </div>
       <!-- End of Main Content -->
 
       <!-- Footer -->
