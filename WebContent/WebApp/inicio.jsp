@@ -2,23 +2,10 @@
     pageEncoding="ISO-8859-1"
     %>
     <%@ page import="javax.servlet.http.HttpSession" %>
-    <%
-    
-    HttpSession s = request.getSession(); 
-    if(s==null) {
-        
-        String site2 = new String("http://localhost:8080/ConsultoriaZ/index.jsp");
-    			response.setStatus(response.SC_MOVED_TEMPORARILY);
-    			response.setHeader("Location", site2);
-        
-    }else{
+    <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-    }
-    
-    
-    
-    %>
-    
+   
 <!DOCTYPE html>
 <html lang="en">
 
@@ -219,8 +206,8 @@
                       <div class="card-header bg-primary" ><c:out value="${s.tipoServicio.getNombre()}"/></div>
                       <div class="card-body">
                         <h5 class="card-title"><c:out value="${s.nombre}"/></h5>
-                        <p class="card-text">$<c:out value="${s.precio}"/></p>
-                        <p class="card-text"><c:out value="${s.fecha}"/><b>-></b><c:out value="${s.fechaFin}"/></p>
+                        <p class="card-text"><c:out value="${s.precio}"/></p>
+                        <p class="card-text"><c:out value="${s.fecha}"/><b>  -  </b><c:out value="${s.fechaFin}"/></p>
                         <p class="card-text"><b><c:out value="${s.estado}"/></b></p>
 
                      </div>

@@ -25,7 +25,7 @@ public class ServicioDao {
 	}
 
 	public List<Servicio> listar2(String id){
-		return (List<Servicio>) em.createQuery("SELECT s from Servicio s").getResultList();	
+		return (List<Servicio>) em.createQuery("SELECT s from Servicio s ").getResultList();	
 		
 	}
 	

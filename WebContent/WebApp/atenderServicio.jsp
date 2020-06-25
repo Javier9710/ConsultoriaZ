@@ -119,7 +119,7 @@
 
 ;" style="border-radius: 20px;">
               
-                <form method="post" action="../AtenderControl" enctype="multipart/form-data">
+                <form method="get" action="../AtenderControl" enctype="multipart/form-data">
                   
                <legend class="text-center header" style="color: black;">Atender Servicio</legend>
                
@@ -144,11 +144,11 @@
             
                    <div class="col">
                     <label  class="" style="color: black;">Fecha de Atención:</label>
-                       <input type="date" class="form-control" placeholder="First name">
+                       <input type="date" name="fecha" class="form-control" placeholder="First name">
                    </div>
                    <div class="col">
                     <label  class="" style="color: black;">Hora de Atención:</label>
-                       <input type="time" class="form-control" placeholder="Last name">
+                       <input type="time" name="hora" class="form-control" placeholder="Last name">
                   </div>
                 </div><br>
                 
