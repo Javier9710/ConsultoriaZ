@@ -113,63 +113,47 @@
 
 
        
-       <div class="container-fluid" style="background-image: url(https://www.publicdomainpictures.net/pictures/280000/velka/gradient-yellow-to-blue-background.jpg); height: 100%;" >
-        <div class="row justify-content-center align-self-center" style="background-color: white;"><br>
+       <div class="container-fluid" style="background-image: url(https://www.publicdomainpictures.net/pictures/280000/velka/gradient-yellow-to-blue-background.jpg); height: 100%;" ><br>
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary" style="font-size: 26px;">BIENVENIDO </h6> 
+              <h6 class="m-0 font-weight-bold text-primary">Listado de Servicios</h6>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
 
-          <legend class="text-center header" style="color: black;">Listado de Servicios</legend>
-          
-          <jsp:useBean id="AD" class="Dao.ServicioDao" scope="request"></jsp:useBean>
-          
-          <table class="table">
-      <thead>
-        <tr>
-          
-          <th style="text-align: center" scope="col">Id</th>
-          <th style="text-align: center" scope="col">Nombre</th>
-          <th style="text-align: center" scope="col">Fecha</th>
-          <th style="text-align: center" scope="col">Precio</th>
-          <th style="text-align: center" scope="col">Cliente</th>
-          <th style="text-align: center" scope="col">Acciones</th>
-        </tr>
-      </thead>
+                <jsp:useBean id="AD" class="Dao.ServicioDao" scope="request"></jsp:useBean>
 
-      <tbody>
-
-
-
-        <c:forEach var="d" items="${AD.listar1()}">
-
-          <tr>
-            
-            <td style="text-align: center">${d.getId()}</td>
-            <td style="text-align: center">${d.getNombre()}</td>
-            <td style="text-align: center">${d.getFecha()}</td>
-            <td style="text-align: center">${d.getPrecio()}</td>
-            <td style="text-align: center">${d.getCliente().getNombre()}</td>
-            
-            <td>
-          <form action="MensajeControl" method="post">
-            <input type="hidden" name="id" value="${d.getId()}">
-            <div class="form-group row">
-              <div class="col-sm-12">
-                <button type="button" onclick="window.location.href='atenderServicio.jsp'" 
+                <div class="card-deck">
+                  <c:forEach var="s" items="${AD.listar1()}">
+                  <div class="card border-primary mb-3" style="max-width: 18rem;">
+                      <div class="card-header" ><c:out value="${d.getTipoServicio.getNombre()}"/></div>
+                      <div class="card-body">
+                        <h5 class="card-title"><c:out value="${d.getNombre()}"/></h5>
+                        <p class="card-text"><c:out value="${d.getId()"/></p>
+                        <p class="card-text">$<c:out value="${d.getPrecio()}"/></p>
+                        <p class="card-text"><c:out value="${d.getFecha()}"/></p>
+                        <p class="card-text"><b>Cliente:</b> <c:out value="${d.getCliente().getNombre()}"/></p>
+                        <form action="MensajeControl" method="post">
+                       <input type="hidden" name="id" value="${d.getId()}">
+                        <div class="form-group row">
+                       <div class="col-sm-12">
+                      <button type="button" onclick="window.location.href='atenderServicio.jsp'" 
                   class="btn btn-primary btn-lg">Atender</button>
                 
               </div>
             </div>
           </form>
-        </td>
-          </tr>
 
-        </c:forEach>
+                     </div>
+                    </div>
 
-
-
-      </tbody>
-
-    </table>
-
- </div><br><br><br>
+                    
+                </c:forEach>
+                </div>
+      </div>
+  </div>
+</div><br><br><br>
 <br><br><br>
 <br><br><br>
 <br><br><br>
