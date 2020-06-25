@@ -1,6 +1,9 @@
 package Control;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -39,15 +42,20 @@ public class AccesoControl extends HttpServlet {
 		String accion = request.getParameter("accion");
 		
 		switch (accion) {
-		case "ingreso":
+		case "ingreso1":
 			String cedula = request.getParameter("cedula");
 			String pass = request.getParameter("pass");
-			p = pD.validar(cedula, pass);
-			if(p!=null) {
+			int p = pD.validar(cedula, pass);
+			if(p!=0) {
 				HttpSession sesion = request.getSession();
 				sesion.setAttribute("persona", p);
 				response.sendRedirect("WebApp/inicio.jsp");
+			}else {
+				response.sendRedirect("index.jps");
+		
+				
 			}
+			
 			
 			
 			break;
@@ -71,6 +79,34 @@ public class AccesoControl extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
+		String accion = request.getParameter("accion");
+		
+		switch (accion) {
+		case "ingreso":
+			String cedula = request.getParameter("cedula");
+			String pass = request.getParameter("pass");
+			int p = pD.validar(cedula, pass);
+			if(p!=0) {
+				HttpSession sesion = request.getSession();
+				sesion.setAttribute("persona", p);
+				response.sendRedirect("WebApp/inicio.jsp");
+			}else {
+				//response.sendRedirect("index.jsp");
+				PrintWriter out = response.getWriter();
+			   out.println("<script type=\"text/javascript\">");
+			   out.println("alert('Usuario o Contraseña Incorrecta');");
+			   out.println("location='index.jsp';");
+			   out.println("</script>");
+		
+				
+			}
+			
+			break;
+
+		default:
+			break;
+		}
 	}
 
 }

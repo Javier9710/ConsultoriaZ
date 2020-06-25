@@ -1,5 +1,6 @@
 package Dao;
 
+import java.math.BigInteger;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -18,22 +19,37 @@ public class PersonaDao {
 
 	}
 
-	public Persona validar(String cedula, String pass) {
+	public int validar(String cedula, String pass) {
 		Persona p = new Persona();
-		 Query nativeQuery = em.createNativeQuery("SELECT nombre,edad FROM Persona p, Admin a "
+		p=null;
+		int x=0;
+		
+		Query nativeQuery = em.createNativeQuery("SELECT count(*) nombre,edad FROM Persona p, Admin a "
 		 		                                 + "WHERE p.cedula =? "
 		 		                                 + "and p.cedula=a.persona "
 		 		                                 + "and a.pass=?");
+		
 	        nativeQuery.setParameter(1, cedula);
 	        nativeQuery.setParameter(2, pass);
-	        Object[] result = (Object[]) nativeQuery.getSingleResult();
-	        p.setNombre((String) result[0]);
-	        p.setEdad((Integer) result[1]);
-	        //System.out.println(p.getNombre());
-	        //System.out.println(p.getEdad());
+	       
+	        	
+	        	Object[] result = (Object[]) nativeQuery.getSingleResult();
+	        	Integer dato1 = ((BigInteger) result[0]).intValue();
+	        	System.out.println("sdfsdfsdfsdfs"+dato1);
+	        	
+	        	if(dato1!=0) {
+	        		
+	        		x=1;
+	        	}
+	        	//int x= (Integer) result[0];
+	 	        //p.setNombre((String) result[0]);
+	 	        //p.setEdad((Integer) result[1]);
+	        	System.out.println(x);
+	 	       
+	        
 	       
 	
-		return p;
+		return x;
 	}
 	
 	public List<Persona> listar() {
