@@ -54,6 +54,7 @@ public class AtenderControl extends HttpServlet {
 			//s.setId(servicio);
 			int id = Integer.parseInt(request.getParameter("id"));
 			s.setId(var);
+			s.setEstado("En Atencion");
 			int tipo = Integer.parseInt(request.getParameter("tipo"));
 			t.setId(tipo);
 			String titulo = request.getParameter("nombre");
