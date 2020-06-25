@@ -224,11 +224,11 @@
             
                    <div class="col">
                     <label  class="" style="color: black;">Fecha de Inicio:</label>
-                       <input type="date" class="form-control" placeholder="First name">
+                       <input type="date" class="form-control" placeholder="First name" name="fechai">
                    </div>
                    <div class="col">
                     <label  class="" style="color: black;">Fecha final:</label>
-                       <input type="date" class="form-control" placeholder="Last name">
+                       <input type="date" class="form-control" placeholder="Last name" name="fechaf">
                   </div>
                 </div><br>
 

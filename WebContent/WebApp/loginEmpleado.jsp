@@ -13,7 +13,6 @@
   <link rel="stylesheet" type="text/css" href="../carpetaplantilla/estilo/loginStyle.css">
   <link rel="shortcut icon" href="../carpetaplantilla/img/icon.png">
 </head>
-<<<<<<< HEAD
 <body >
   <div class="modal-dialog text-center">
         <div class="col-sm-8 main-section">
@@ -22,37 +21,8 @@
                     <img src="../carpetaplantilla/img/user.png" />
                     <h3>Empleado</h3>
                 </div>
-=======
-<body style="background-image: url(https://jrs.digital/wp-content/uploads/2019/11/office-3295556_1920.jpg);background-size: cover; background-repeat: no-repeat; background-attachment: fixed;" >
-  <br>
-<aside><br><br><br>
-  <div class="row justify-content-center align-self-center"  >
-    <div class="col col-sm-8 col-md-8 col-lg-4 col-xl-4 h-100" id="level1">
-      <h2 id="nom">Consultorias Zambrano</h2>
-      <h5 id="nom2">Sector de Ingenieria - <b>Empleado</b></h5>
-      <hr>
-        <form id="formLogin" method="get" action="../EmpleadoControl">
- 
-          <div class="form-group row"><br>
-        
-            <label for="inputEmail3" style="text-align: left;" class="col-sm-3 col-form-label">Cedula</label>
-            <div class="col-sm-9">
-            <input type="text" class="form-control" name="cedula" placeholder="Cedula" required="Llena este campo">
-           </div>
-          </div>
-          <div class="form-group row">
-           <label for="inputPassword3" style="text-align: left;" class="col-sm-3 col-form-label">Contraseña</label>
-          <div class="col-sm-9">
-          <input type="password" class="form-control" name="pass" placeholder="Contraseña" required="Llena este campo">
-          </div>
-         </div>
-  <div class="col-sm-12">
-      <button type="submit" name="accion" value="ingreso" class="btn btn-dark" >Iniciar Sesión</button><br><br>
-    </div>
-    
->>>>>>> 73bb42d49496feb87e0bc6a0404aa40849d09852
 
-                <form id="formLogin" class="col-12" action="../EmpleadoControl" method="post">
+                <form id="formLogin" class="col-12" action="../EmpleadoControl" method="get">
                     <div class="form-group" id="user-group">
                         <input type="text" class="form-control" placeholder="Cedula" name="cedula"required="Llena este campo"/>
                     </div>

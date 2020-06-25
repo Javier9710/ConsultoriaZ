@@ -224,8 +224,8 @@
                 </div>
 
                 <div class="input-file-container">  
-    <input class="input-file" id="my-file" type="file">
-    <label tabindex="0" for="my-file" class="input-file-trigger">Foto</label>
+   <input class="input-file" id="my-file" type="file" name="foto">
+   <label tabindex="0" for="my-file" class="input-file-trigger">Foto</label>
   </div>
   <p class="file-return"></p>
                 
