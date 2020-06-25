@@ -195,7 +195,7 @@
           <div class="card-deck">
             <c:forEach var="p" items="${pD.listar1()}">
   <div class="card">
-    <img  src="../img/<c:out value="${p.foto}"/>" class="card-img-top" width="100" height="300" alt="Card image cap" >
+    <img  src="https://raw.githubusercontent.com/Javier9710/ConsultoriaZ/master/WebContent/img/<c:out value="${p.foto}"/>" class="card-img-top" width="100" height="300" alt="Card image cap" >
     
     <div class="card-body">
       <h5 class="card-title"><c:out value="${p.nombre}"/></h5>

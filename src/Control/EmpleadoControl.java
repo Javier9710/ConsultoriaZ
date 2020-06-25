@@ -63,9 +63,10 @@ public class EmpleadoControl extends HttpServlet {
 			String foto = request.getParameter("foto");
 			//atributos Empleado
 			String pass = request.getParameter("pass");
-			int cargo = Integer.parseInt(request.getParameter("cargo"));
+			 int cargo = Integer.parseInt(request.getParameter("cargo"));
 			
 			c.setId(cargo);
+			
 			p.setCedula(cedula);
 			p.setNombre(nombre);
 			p.setEdad(edad);

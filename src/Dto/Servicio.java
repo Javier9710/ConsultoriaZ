@@ -27,6 +27,7 @@ public class Servicio implements Serializable {
 	private static final long serialVersionUID = -1626580102498151753L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id")
 	private int id;
 	private String nombre;
 	@ManyToOne
